@@ -8,7 +8,8 @@ class AdminMiddleware
 {
     /**
      * Handle an incoming request.
-     *
+     * Verifies if the logged user role is admin.
+     * 
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
      * @return mixed

@@ -13,14 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    Admin has logged in.
-                </div>
-                <div class="container">
-                    <div class="button">
-                        @auth
-                            <a href="{{ url('/admin/addProducts') }}">Add products</a>
-                        @endauth
-                    </div>
+                    Add Products View
                 </div>
             </div>
         </div>
