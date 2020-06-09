@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use Notifiable;
+    
 
     /**
      * The attributes that are mass assignable.
@@ -36,4 +37,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    const ADMIN = "admin";
+    const DEFAULT = "user";
+
+    public function isAdmin()
+    {        
+        return $this->type === self::ADMIN;    
+    }
+
+    public function isDefault()
+    {
+        return $this->type === self::DEFAULT;    
+    }
 }
