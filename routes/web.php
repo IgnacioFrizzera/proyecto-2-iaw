@@ -24,4 +24,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/admin', 'AdminController@index')->name('admin');
 
-Route::get('/admin/addProducts', 'ProductController@index')->name('product');
+Route::get('/admin/addProducts', 'Product\AddProductController@index')->name('product');
