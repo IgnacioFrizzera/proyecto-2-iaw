@@ -17,7 +17,7 @@ class CreateProductsTable extends Migration
             $table->string('name', 255);
             $table->string('code', 10)->primary();
             $table->string('description', 100)->nullable();
-            $table->float('price', 8, 2);
+            $table->float('price', 8, 2)->unsigned();
             $table->mediumText('image_one')->nullable();
             $table->mediumText('image_two')->nullable();
             $table->mediumText('image_three')->nullable();
