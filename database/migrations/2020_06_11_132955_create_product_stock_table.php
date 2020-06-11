@@ -14,9 +14,11 @@ class CreateProductStockTable extends Migration
     public function up()
     {
         Schema::create('product_stock', function (Blueprint $table) {
-            $table->string('product_code', 10)->primary();
-            $table->integer('stock')->unsigned();
+            $table->string('product_code', 10);
             $table->string('size', 4);
+            $table->integer('stock')->unsigned();
+
+            $table->primary(['product_code', 'size']);
         });
     }
 
