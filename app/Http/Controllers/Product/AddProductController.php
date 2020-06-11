@@ -20,37 +20,47 @@ class AddProductController extends Controller
         return view('addProduct');
     }
 
-    public function addProduct($request)
+    private function validateData(REQUEST $request)
     {
-        // Validates the input data according to DB tables
         $validData = $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'code' => [ 'bail', 'required', 'string', 'primary:products', 'max:10'],
-            'description' => ['nullable', 'string', 'max:100'],
-            'price' => ['required','unsigned', 'float'],
-            'image_one' => ['nullable', 'mediumText'],
-            'image_two' => ['nullable', 'mediumText'],
-            'image_three' => ['nullable', 'mediumText'],
-            'stock' => ['required', 'integer', 'unsigned'],
-            'size' => ['required', 'string', 'max:4']
+            'ProductName' => ['required', 'string', 'max:255'],
+            'ProductCode' => [ 'bail', 'required', 'string', 'primary:products', 'max:10'],
+            'ProductDescription' => ['nullable', 'string', 'max:100'],
+            'ProductPrice' => ['required','unsigned', 'float'],
+            'ProductFirstImage' => ['nullable', 'mediumText'],
+            'ProductSecondImage' => ['nullable', 'mediumText'],
+            'ProductThirdImage' => ['nullable', 'mediumText'],
         ]);
-        
-        // If all the given data is valid, creates the entries in DB
 
+        return $validData;
+    }
+
+    public function addProduct(REQUEST $request)
+    {
+        // Verifies if the input data is valid regardless db schema
+        $validData = $request->validate([
+            'ProductName' => ['required', 'string', 'max:255'],
+            'ProductBrand' => ['required', 'string', 'max:255'],
+            'ProductCode' => [ 'bail', 'required', 'string', 'max:10'],
+            'ProductDescription' => ['nullable', 'string', 'max:100'],
+            'ProductPrice' => ['required', 'digits:3'],
+            'ProductFirstImage' => ['nullable', 'mediumText'],
+            'ProductSecondImage' => ['nullable', 'mediumText'],
+            'ProductThirdImage' => ['nullable', 'mediumText'],
+        ]);
+ 
+        // Once all data is verified, creates the product in the database
         Product::create([
-            'name' => $validData['name'],
-            'code' => $validData['code'],
-            'description' => $validData['description'],
-            'price' => $validData['price'],
-            'image_one' => $validData['image_one'],
-            'image_two' => $validData['image_two'],
-            'image_three' => $validData['image_three']
+            'name' => $validData['ProductName'],
+            'code' => $validData['ProductCode'],
+            'description' => $validData['ProductDescription'],
+            'price' => $validData['ProductPrice'],
+            'image_one' => $validData['ProductFirstImage'],
+            'image_two' => $validData['ProductSecondImage'],
+            'image_three' => $validData['ProductThirdImage']
         ]);
 
-        Stock::create([
-            'product_code' => $validData['code'],
-            'stock' => $validData['stock'],
-            'size' => $validData['size']
-        ]);
+        print_r("Product was made, name:" + $validData['ProductName'] +
+         "Code: " + $validData['ProductCode']);
     }
 }

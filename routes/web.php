@@ -25,3 +25,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin', 'AdminController@index')->name('admin');
 
 Route::get('/admin/addProducts', 'Product\AddProductController@index')->name('product');
+
+Route::post('/admin/productInfo', "Product\AddProductController@addProduct");
