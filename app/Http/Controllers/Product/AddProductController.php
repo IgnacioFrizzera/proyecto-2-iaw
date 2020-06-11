@@ -43,24 +43,32 @@ class AddProductController extends Controller
             'ProductBrand' => ['required', 'string', 'max:255'],
             'ProductCode' => [ 'bail', 'required', 'string', 'max:10'],
             'ProductDescription' => ['nullable', 'string', 'max:100'],
-            'ProductPrice' => ['required', 'digits:3'],
-            'ProductFirstImage' => ['nullable', 'mediumText'],
-            'ProductSecondImage' => ['nullable', 'mediumText'],
-            'ProductThirdImage' => ['nullable', 'mediumText'],
+            'ProductPrice' => ['required', 'numeric:min:2:max:10'],
+            'ProductFirstImage' => ['binary', 'nullable'],
+            'ProductSecondImage' => ['binary', 'nullable'],
+            'ProductThirdImage' => ['binary', 'nullable'],
         ]);
+
+        /**
+         * 
+         *  'image_one' => $validData['ProductFirstImage'],
+            'image_two' => $validData['ProductSecondImage'],
+            'image_three' => $validData['ProductThirdImage']
+
+            'image_one' => null,
+            'image_two' => null,
+            'image_three' => null
+         * 
+         */
  
         // Once all data is verified, creates the product in the database
         Product::create([
             'name' => $validData['ProductName'],
+            'brand' => $validData['ProductBrand'],
             'code' => $validData['ProductCode'],
             'description' => $validData['ProductDescription'],
             'price' => $validData['ProductPrice'],
-            'image_one' => $validData['ProductFirstImage'],
-            'image_two' => $validData['ProductSecondImage'],
-            'image_three' => $validData['ProductThirdImage']
         ]);
 
-        print_r("Product was made, name:" + $validData['ProductName'] +
-         "Code: " + $validData['ProductCode']);
     }
 }
