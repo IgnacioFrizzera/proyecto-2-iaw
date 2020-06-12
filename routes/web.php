@@ -26,4 +26,6 @@ Route::get('/admin', 'AdminController@index')->name('admin');
 
 Route::get('/admin/addProducts', 'Product\AddProductController@index')->name('product');
 
-Route::post('/admin/productInfo', "Product\AddProductController@addProduct");
+Route::post('/admin/addStockToUploadedProduct', 'Product\AddProductController@addProduct');
+
+Route::get('/admin/addStockToUploadedProduct', 'Product\AddStockController@addStockToUploadedProduct');
