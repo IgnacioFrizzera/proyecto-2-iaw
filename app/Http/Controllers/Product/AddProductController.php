@@ -33,6 +33,13 @@ class AddProductController extends Controller
             'image_three' => ['image', 'nullable', 'mimes:jpeg,jpg,png,gif'],
         ]);
 
+        $imageFile = $request->file('image_one');
+        $extension = $imageFile->getClientOriginalExtension();
+        $fileName = time() . '.' . $extension;
+        $imageFile->move('uploads/products/', $fileName);
+
+        $validData['image_one'] = $fileName;
+
         //'image_two' => $validData['image_two'],
         //'image_three' => $validData['image_three']
  
@@ -46,9 +53,7 @@ class AddProductController extends Controller
             'image_one' => $validData['image_one']
         ]); 
 
-        $nextData['product_code'] = $validData['code'];
-        $nextData['product_image'] = $validData['image_one'];
-
-        return view('addStockToUploadedProduct')->with('data', $nextData);
+        return view('addStockToUploadedProduct')->with('validData', $validData);
     }
+
 }

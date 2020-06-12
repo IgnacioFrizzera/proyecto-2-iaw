@@ -28,4 +28,4 @@ Route::get('/admin/addProducts', 'Product\AddProductController@index')->name('pr
 
 Route::post('/admin/addStockToUploadedProduct', 'Product\AddProductController@addProduct');
 
-Route::get('/admin/addStockToUploadedProduct', 'Product\AddStockController@addStockToUploadedProduct');
+Route::get('/admin/addStockToUploadedProduct', 'Product\AddStockController@index');
