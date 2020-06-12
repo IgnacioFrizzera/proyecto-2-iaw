@@ -20,7 +20,19 @@
                 <tr>
                   <th> {{ $validData['name'] }}</th>
                   <th> {{ $validData['code'] }} </th>
-                  <th> <img src="{{ asset('uploads/products/' . $validData['image_one'])}}" alt="Image"> </th>
+                  <th>
+                    <?php
+                        $target_dir = "uploads/temp/products/";
+                        $target_name = "test_photo";
+                        $path = $target_dir.$target_name;
+                        
+                        $imageBLOB = $validData['image_one'];
+
+                        $file = fopen($path, "w");
+                        fwrite($file, base64_decode($imageBLOB));
+                    ?>.
+                  <th> <img src="{{ asset('uploads/temp/products/'.$target_name)}}" alt="Image"> </th>
+                
                 </tr>
             </tbody>
         </table>

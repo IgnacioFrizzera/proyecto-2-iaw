@@ -28,21 +28,15 @@ class AddProductController extends Controller
             'code' => [ 'bail', 'unique:products', 'required', 'string', 'max:10'],
             'description' => ['nullable', 'string', 'max:100'],
             'price' => ['required', 'numeric:min:2:max:10'],
-            'image_one' => ['image', 'nullable', 'mimes:jpeg,jpg,png,gif'],
-            'image_two' => ['image', 'nullable', 'mimes:jpeg,jpg,png,gif'],
-            'image_three' => ['image', 'nullable', 'mimes:jpeg,jpg,png,gif'],
+            'image_one' => ['image', 'nullable', 'mimes:jpeg,jpg,png,gif', 'max:10240'],
+            'image_two' => ['image', 'nullable', 'mimes:jpeg,jpg,png,gif', 'max:10240'],
+            'image_three' => ['image', 'nullable', 'mimes:jpeg,jpg,png,gif', 'max:10240'],
         ]);
 
-        $imageFile = $request->file('image_one');
-        $extension = $imageFile->getClientOriginalExtension();
-        $fileName = time() . '.' . $extension;
-        $imageFile->move('uploads/products/', $fileName);
+        $imageDataBLOB = base64_encode(file_get_contents($_FILES['image_one']['tmp_name']) );
+        $validData['image_one'] = $imageDataBLOB;
 
-        $validData['image_one'] = $fileName;
-
-        //'image_two' => $validData['image_two'],
-        //'image_three' => $validData['image_three']
- 
+        
         // Once all data is verified, creates the product in the database
         Product::create([
             'name' => $validData['name'],
@@ -51,7 +45,8 @@ class AddProductController extends Controller
             'description' => $validData['description'],
             'price' => $validData['price'],
             'image_one' => $validData['image_one']
-        ]); 
+        ]);
+        
 
         return view('addStockToUploadedProduct')->with('validData', $validData);
     }
