@@ -8,9 +8,9 @@ class Stock extends Model
 {
     protected $table = 'products_stock';
 
-    protected $primary_key = ['product_code', 'size'];
+    protected $primary_key = 'product_code';
 
     protected $fillable = [
-        'product_code', 'stock', 'size'
+        'product_code', 's_stock', 'm_stock','l_stock', 'xl_stock'
     ];
 }
