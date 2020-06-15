@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
 use App\Product;
+use App\Stock;
 use Illuminate\Http\Request;
 
 class AddProductController extends Controller
@@ -31,12 +32,15 @@ class AddProductController extends Controller
             'image_one' => ['image', 'nullable', 'mimes:jpeg,jpg,png,gif', 'max:10240'],
             'image_two' => ['image', 'nullable', 'mimes:jpeg,jpg,png,gif', 'max:10240'],
             'image_three' => ['image', 'nullable', 'mimes:jpeg,jpg,png,gif', 'max:10240'],
+            's_stock' => ['numeric'],
+            'm_stock' => ['numeric'],
+            'l_stock' => ['numeric'],
+            'xl_stock' => ['numeric'],
         ]);
 
         $imageDataBLOB = base64_encode(file_get_contents($_FILES['image_one']['tmp_name']) );
         $validData['image_one'] = $imageDataBLOB;
 
-        
         // Once all data is verified, creates the product in the database
         Product::create([
             'name' => $validData['name'],
@@ -46,9 +50,17 @@ class AddProductController extends Controller
             'price' => $validData['price'],
             'image_one' => $validData['image_one']
         ]);
-        
 
-        return view('addStockToUploadedProduct')->with('validData', $validData);
+        // Once the product is created, make the stock for it
+        Stock::create([
+            'product_code' => $validData['code'],
+            's_stock' => $validData['s_stock'],
+            'm_stock' => $validData['m_stock'],
+            'l_stock' => $validData['l_stock'],
+            'xl_stock' => $validData['xl_stock']
+        ]);
+
+        return view('admin');
     }
 
 }

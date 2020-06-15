@@ -15,10 +15,10 @@ class CreateProductStockTable extends Migration
     {
         Schema::create('product_stock', function (Blueprint $table) {
             $table->string('product_code', 10)->primary();
-            $table->integer('s_stock')->unsigned();
-            $table->integer('m_stock')->unsigned();
-            $table->integer('l_stock')->unsigned();
-            $table->integer('xl_stock')->unsigned();
+            $table->integer('s_stock')->unsigned()->default(0);
+            $table->integer('m_stock')->unsigned()->default(0);
+            $table->integer('l_stock')->unsigned()->default(0);
+            $table->integer('xl_stock')->unsigned()->default(0);
         });
     }
 
