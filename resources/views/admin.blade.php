@@ -21,6 +21,11 @@
                             <a href="{{ url('/admin/addProducts') }}">Add products</a>
                         @endauth
                     </div>
+                    <div class="button">
+                        @auth
+                            <a href="{{ url('/admin/showStock') }}">View all the stock</a>
+                        @endauth
+                    </div>
                 </div>
             </div>
         </div>

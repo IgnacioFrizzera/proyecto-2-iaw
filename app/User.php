@@ -51,4 +51,9 @@ class User extends Authenticatable
         return $this->type === self::DEFAULT;    
     }
 
+    public function stock()
+    {
+        return $this->hasOne('App\Stock');
+    }
+
 }

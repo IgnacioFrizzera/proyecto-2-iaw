@@ -15,4 +15,9 @@ class Stock extends Model
     protected $fillable = [
         'product_code', 's_stock', 'm_stock','l_stock', 'xl_stock'
     ];
+
+    public function product()
+    {
+        return $this->hasOne('App\Product');
+    }
 }
