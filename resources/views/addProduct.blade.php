@@ -1,10 +1,13 @@
+@extends('layouts.app')
+
+@section('content')
 <html>
     <head>
         <title>Sumbit Product</title >
     </head>
     <body>
         <div class="container">
-            <p>Fullfill the following fields to load a product into server storage.</p>
+            <h1>Fullfill the following fields to load a product into server storage</h1>
             <br>
             @if (count($errors) > 0)
             <div class="alert alert-danger">
@@ -27,8 +30,8 @@
                 Product Description <input type="text" name="description">
                 <br><br>
                 Product Price <input type="number" step="any" min="0" name="price">
+                <br><br>
                 <p>Not all image fields need to be fullfilled.</p>
-                <br>
                 Product First Image <input type="file" name="image_one">
                 <br><br>
                 Product Second Image <input type="file" name="image_two">
@@ -37,6 +40,12 @@
                 <br><br>
                 <button type="submit">Load product</button>
             </form>
+            @if(session('status'))
+            <div class="alert alert-success" role="alert">
+                {{ session('status') }}
+            </div>
+            @endif
         </div>
     </body>
 </html>
+@endsection

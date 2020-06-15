@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <html>
     <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -23,7 +27,7 @@
                   <th>
                     <?php
                         $target_dir = "uploads/temp/products/";
-                        $target_name = "test_photo";
+                        $target_name = "latest_uploaded_product";
                         $path = $target_dir.$target_name;
                         
                         $imageBLOB = $validData['image_one'];
@@ -31,7 +35,7 @@
                         $file = fopen($path, "w");
                         fwrite($file, base64_decode($imageBLOB));
                     ?>.
-                  <th> <img src="{{ asset('uploads/temp/products/'.$target_name)}}" alt="Image"> </th>
+                  <th> <img src="{{ asset('uploads/temp/products/'.$target_name)}}" alt="Image" width="250px" height="250px"> </th>
                 
                 </tr>
             </tbody>
@@ -39,3 +43,4 @@
 
     </body>
 </html>
+@endsection
