@@ -58,7 +58,7 @@ class AddProductController extends Controller
             'xl_stock' => $validData['xl_stock']
         ]);
 
-        return view('admin');
+        return view('admin')->withMessage('Product was uploaded successfully!');
     }
 
 }

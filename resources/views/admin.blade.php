@@ -6,30 +6,35 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Admin Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+                    <div class="card-body">
+                        @if (session('status'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+                    </div>
+                    <div class="container">
+                        @if(isset($message))
+                            <div class="container">
+                                <h2>{{$message}}</h2>
+                            </div>
+                        @endif
+                        <div class="container">
+                        <div class="button">
+                            @auth
+                                <a href="{{ url('/admin/addProducts') }}">Add products</a>
+                            @endauth
                         </div>
-                    @endif
-                    Admin has logged in.
-                </div>
-                <div class="container">
-                    <div class="button">
-                        @auth
-                            <a href="{{ url('/admin/addProducts') }}">Add products</a>
-                        @endauth
-                    </div>
-                    <div class="button">
-                        @auth
-                            <a href="{{ url('/admin/showStock') }}">View all the stock</a>
-                        @endauth
-                    </div>
-                    <div class="button">
-                        @auth
-                            <a href="{{ url('/admin/searchProduct') }}">Search and modify a product</a>
-                        @endauth
+                        <div class="button">
+                            @auth
+                                <a href="{{ url('/admin/showStock') }}">View all the stock</a>
+                            @endauth
+                        </div>
+                        <div class="button">
+                            @auth
+                                <a href="{{ url('/admin/searchProduct') }}">Search and modify a product</a>
+                            @endauth
+                        </div>
                     </div>
                 </div>
             </div>
