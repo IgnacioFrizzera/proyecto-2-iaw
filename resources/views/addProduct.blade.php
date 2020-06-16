@@ -26,15 +26,17 @@
                         <div class="col-md-4">
                             <div class="container">
                                 <h2>Product general information</h2>
-                                Product Name <input type="text" name="name">
+                                <input type="text" name="name" placeholder="Product name">
                                 <br><br>
-                                Product Brand <input type="text" name="brand">
+                                <input type="text" name="brand" placeholder="Product brand">
                                 <br><br>
-                                Product Code <input type="text" name="code">
+                                <input type="text" name="code" placeholder="Product code">
                                 <br><br>
-                                Product Description <input type="text" name="description">
+                                <input type="text" name="description" placeholder="Product description">
                                 <br><br>
-                                Product Price <input type="number" step="any" min="0" name="price">
+                                <input type="number" step="any" min="0" name="price" placeholder="Product price">
+                                <br><br>
+                                <button type="submit">Load product</button>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -49,19 +51,18 @@
                         <div class="col-md-4">
                             <div class="container">
                                 <h2>Product sizes</h2>
-                                S size stock <input type="number" min="0" name="s_stock">
+                                <input type="number" min="0" name="s_stock" placeholder="S size amount">
                                 <br><br>
-                                M size stock <input type="number" step="any" min="0" name="m_stock">
+                                <input type="number" step="any" min="0" name="m_stock" placeholder="M size amount">
                                 <br><br>
-                                L size stock <input type="number" step="any" min="0" name="l_stock">
+                                <input type="number" step="any" min="0" name="l_stock" placeholder="L size amount">
                                 <br><br>
-                                XL size stock <input type="number" step="any" min="0" name="xl_stock"> 
+                                <input type="number" step="any" min="0" name="xl_stock" placeholder="XL size amount"> 
                                 <br><br>
                             </div>
                         </div>
                     </div>
                     <br><br>
-                    <button type="submit">Load product</button>
                 </div>
             </form>
             @if(session('status'))
