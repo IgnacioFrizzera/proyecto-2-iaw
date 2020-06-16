@@ -10,15 +10,15 @@
             <h1>Fullfill the following fields to load a product</h1>
             <br>
             @if (count($errors) > 0)
-            <div class="alert alert-danger">
-             Some data you tried to upload might be invalid! Try again.<br><br>
-             <ul>
-              @foreach ($errors->all() as $error)
-               <li>{{ $error }}</li>
-              @endforeach
-             </ul>
-            </div>
-           @endif
+                <div class="alert alert-danger">
+                Some data you tried to upload might be invalid! Try again.<br><br>
+                <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+                </ul>
+                </div>
+            @endif
             <form action="/adminDashboard" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="container">
@@ -40,13 +40,8 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <h2>Product images</h2>
-                            <p>At least one image has to be uploaded.</p>
-                            Product First Image <input type="file" name="image_one">
-                            <br><br>
-                            Product Second Image <input type="file" name="image_two">
-                            <br><br>
-                            Product Third Image <input type="file" name="image_three">
+                            <h2>Product image</h2>
+                            <input type="file" name="image">
                         </div>
                         <div class="col-md-4">
                             <div class="container">

@@ -31,7 +31,7 @@ class SearchModifyProductByCodeController extends Controller
         $searchedData = DB::table('products')->where('code', $validCode)
         ->join('product_stock', 'products.code', '=', 'product_stock.product_code')
         ->get();
-        
+
         if(count($searchedData) > 0)
         {
             return $this->index()->with('searchedData', $searchedData);   
