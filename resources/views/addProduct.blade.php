@@ -7,7 +7,7 @@
     </head>
     <body>
         <div class="container">
-            <h1>Fullfill the following fields to load a product into server storage</h1>
+            <h1>Fullfill the following fields to load a product</h1>
             <br>
             @if (count($errors) > 0)
             <div class="alert alert-danger">
@@ -19,7 +19,7 @@
              </ul>
             </div>
            @endif
-            <form action="/admin" method="POST" enctype="multipart/form-data">
+            <form action="/adminDashboard" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="container">
                     <div class="row">

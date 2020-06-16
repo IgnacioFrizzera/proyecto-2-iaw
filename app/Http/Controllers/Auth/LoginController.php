@@ -33,12 +33,7 @@ class LoginController extends Controller
             return redirect('/userDashboard');
         }
     }
-
-    public function adminLogin()
-    {
-        return view('admin');
-    }
-
+    
     /**
      * Create a new controller instance.
      *
