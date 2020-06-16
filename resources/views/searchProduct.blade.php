@@ -51,7 +51,19 @@
                                 <td><?php echo $value->m_stock;?></td>
                                 <td><?php echo $value->l_stock;?></td>
                                 <td><?php echo $value->xl_stock;?></td>
-                                <td><?php echo $value->image;?></td> 
+                                <td>
+                                    <?php
+                                        $target_dir = "uploads/temp/products/";
+                                        $target_name = "latest_uploaded_product";
+                                        $path = $target_dir.$target_name;
+                        
+                                        $imageBLOB = $value->image;
+
+                                        $file = fopen($path, "w");
+                                        fwrite($file, base64_decode($imageBLOB)); 
+                                    ?>
+                                </td>
+                                <th> <img src="{{ asset('uploads/temp/products/'.$target_name)}}" alt="Image" width="100px" height="100px"> </th> 
                             </tr>
                         <?php endforeach;?>
                         </tbody>

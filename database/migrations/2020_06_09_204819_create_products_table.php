@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('code', 10)->primary();
             $table->string('description', 100)->nullable();
             $table->float('price', 8, 2)->unsigned();
-            $table->binary('image');
+            $table->text('image');
         });
     }
 
