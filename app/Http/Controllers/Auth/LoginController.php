@@ -26,11 +26,11 @@ class LoginController extends Controller
     {
         if($user->isAdmin())
         {   
-            return redirect('/admin');
+            return redirect('/adminDashboard');
         }
         else if($user->isDefault())
         {
-            return redirect('/home');
+            return redirect('/userDashboard');
         }
     }
 

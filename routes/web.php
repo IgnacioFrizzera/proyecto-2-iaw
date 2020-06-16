@@ -22,10 +22,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/admin', 'AdminController@index')->name('admin');
+Route::get('/adminDashboard', 'AdminController@index')->name('admin');
+
+Route::get('/userDashboard', 'UserController@index')->name('user');
 
 Route::get('/admin/addProducts', 'Product\AddProductController@index')->name('product');
 
-Route::post('/admin', 'Product\AddProductController@addProduct');
+Route::post('/adminDashboard', 'Product\AddProductController@addProduct');
 
 Route::get('/admin/showStock', 'Product\ShowStockController@searchAllStock');
