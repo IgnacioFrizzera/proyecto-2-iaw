@@ -13,9 +13,9 @@
               @endforeach
              </ul>
             </div>
-           @endif
+           @endif   
            <div class="container">
-                <form action="/admin/searchProduct" method="POST" enctype="multipart/form-data">
+                <form action="/admin/modifyProduct" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <h2>Search product by code</h2> <input type="text" name="code">
                     <button type="submit">Search product</button>                
@@ -62,32 +62,27 @@
                                         $file = fopen($path, "w");
                                         fwrite($file, base64_decode($imageBLOB)); 
                                     ?>
+                                    <img src="{{ asset('uploads/temp/products/'.$target_name)}}" alt="Image" width="100px" height="100px"> </th> 
                                 </td>
-                                <th> <img src="{{ asset('uploads/temp/products/'.$target_name)}}" alt="Image" width="100px" height="100px"> </th> 
+                                <th>
                             </tr>
                         <?php endforeach;?>
                         </tbody>
                     </table>
                 </div>
                 <div class="container">
-                    <h2>Edit the product values</h2>
+                    <h2>Edit the product information</h2>
                 </div>
                 <div class="container">
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">Name</th>
-                                <th scope="col">Brand</th>
-                                <th scope="col">Code</th>
                                 <th scope="col">Description</th>
                                 <th scope="col">Price</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><input type="text" name="name" placeholder="Product name"></td> 
-                                <td><input type="text" name="brand" placeholder="Product brand"></td> 
-                                <td><input type="text" name="code" placeholder="Product code"></td> 
                                 <td><input type="text" name="description" placeholder="Product description"></td> 
                                 <td><input type="number" step="any" min="0" name="price" placeholder="Product price"></td> 
                             </tr>

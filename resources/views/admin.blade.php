@@ -32,7 +32,12 @@
                         </div>
                         <div class="button">
                             @auth
-                                <a href="{{ url('/admin/searchProduct') }}">Search and modify a product</a>
+                                <a href="{{ url('/admin/modifyProduct') }}">Search and modify a product</a>
+                            @endauth
+                        </div>
+                        <div class="button">
+                            @auth
+                                <a href="{{ url('/admin/deleteProduct') }}">Delete a product</a>
                             @endauth
                         </div>
                     </div>

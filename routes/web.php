@@ -32,6 +32,8 @@ Route::post('/adminDashboard', 'Product\AddProductController@addProduct');
 
 Route::get('/admin/showStock', 'Product\ShowStockController@searchAllStock');
 
-Route::get('admin/searchProduct', 'Product\SearchModifyProductByCodeController@index');
+Route::get('admin/modifyProduct', 'Product\ModifyProductController@index');
 
-Route::post('admin/searchProduct', 'Product\SearchModifyProductByCodeController@searchProductByCode');
+Route::post('admin/modifyProduct', 'Product\ModifyProductController@searchProductByCode');
+
+Route::get('admin/deleteProduct', 'Product\DeleteProductController@index');

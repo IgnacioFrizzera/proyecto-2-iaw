@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 /**
  * Controller that will handle all of the admin search actions
  */
-class SearchModifyProductByCodeController extends Controller
+class ModifyProductController extends Controller
 {
     public function __construct()
     {
@@ -18,7 +18,7 @@ class SearchModifyProductByCodeController extends Controller
     
     public function index()
     {
-        return view('searchProduct');
+        return view('modifyProduct');
     }
 
 
