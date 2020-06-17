@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Product;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Product;
+use App\Stock;
 
 class DeleteProductController extends Controller
 {
@@ -44,8 +46,8 @@ class DeleteProductController extends Controller
     {   
         $validCode = $request->input('code');
 
-        DB::table('product_stock')->where('product_code', $validCode)->delete();
-        DB::table('products')->where('code', $validCode)->delete();
+        Stock::where('product_code', $validCode)->delete();
+        Product::where('code', $validCode)->delete();
 
         return view('admin')->withMessage('Product with code: '.$validCode.' was removed successfully!');
     }   

@@ -5,12 +5,15 @@ namespace App\Http\Controllers\Product;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Product;
+use App\Stock;
 
 /**
  * Controller that will handle all of the admin search actions
  */
 class ModifyProductController extends Controller
 {
+
     public function __construct()
     {
         $this->middleware('admin'); 
@@ -20,7 +23,6 @@ class ModifyProductController extends Controller
     {
         return view('modifyProduct');
     }
-
 
     public function searchProductByCode(REQUEST $request)
     {
@@ -40,5 +42,65 @@ class ModifyProductController extends Controller
         {
             return $this->index()->withMessage('No product was found');
         }
+    }
+
+    private function updateNewStock($validData, $validCode)
+    {
+        Stock::where('product_code', $validCode)
+        ->update([
+            's_stock' => $validData['new_s_stock'],
+            'm_stock' => $validData['new_m_stock'],
+            'l_stock' => $validData['new_l_stock'],
+            'xl_stock' => $validData['new_xl_stock']
+        ]);
+    }
+
+    private function updateNewInfo($validData, $imageValue, $validCode)
+    {
+        $this->updateNewStock($validData, $validCode);
+        if($imageValue === null)
+        {
+            Product::where('code', $validCode)
+            ->update([
+                'name' => $validData['new_name'],
+                'description' => $validData['new_description'],
+                'price' => $validData['new_price']
+            ]);
+        }
+        else
+        {
+            $imageDataBLOB = base64_encode(file_get_contents($_FILES['new_image']['tmp_name']) );
+            $validData['new_image'] = $imageDataBLOB;
+
+            Product::where('code', $validCode)
+            ->update([
+                'name' => $validData['new_name'],
+                'description' => $validData['new_description'],
+                'price' => $validData['new_price'],
+                'image' => $validData['new_image']
+            ]);
+        }
+    }
+
+    public function modifyProduct(REQUEST $request)
+    {   
+        $validCode = $request->input('update_code');
+
+        $validData = $request->validate([
+            'new_name' => ['required', 'string', 'max:255'],
+            'new_description' => ['required', 'string', 'max:100'],
+            'new_price' => ['required', 'numeric:min:2:max:10'],
+            'new_image' => ['image', 'nullable', 'mimes:jpeg,jpg,png,gif', 'max:10240'],
+            'new_s_stock' => ['required', 'numeric'],
+            'new_m_stock' => ['required', 'numeric'],
+            'new_l_stock' => ['required', 'numeric'],
+            'new_xl_stock' => ['required', 'numeric'],
+        ]);
+
+        $imageValue = $request->input('new_image');
+        
+        $this->updateNewInfo($validData, $imageValue, $validCode);
+
+        return view('admin')->withMessage('The product was successfully updated!');
     }
 }

@@ -44,7 +44,7 @@
                             <tr>
                                 <td><?php $searchedName = $value->name; echo $searchedName;?></td>
                                 <td><?php echo $value->brand;?></td>
-                                <td><?php echo $value->code;?></td>
+                                <td><?php $validCode = $value->code; echo $validCode;?></td>
                                 <td><p><?php $searchedDescription = $value->description; echo $searchedDescription;?></p></td>
                                 <td>$<?php $searchedPrice = $value->price; echo $searchedPrice;?></td>
                                 <td><?php $searchedSStock = $value->s_stock; echo $searchedSStock;?></td>
@@ -112,7 +112,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <input type="hidden" name="update_code">
+                        <input type="hidden" name="update_code" value= {{ $validCode }}>
                         <button type="submit">Update product info</button>     
                     </form>
                 </div>
