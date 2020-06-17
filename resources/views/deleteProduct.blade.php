@@ -69,7 +69,7 @@
                         <?php endforeach;?>
                         </tbody>
                     </table>
-                    <form action="/adminDashboard" method="POST">
+                    <form action="/adminDashboard-after-deleted-product" method="POST">
                         {{ csrf_field() }}
                         <input type="hidden" name="code" value= {{ $validCode }} >
                         <button type="submit">Delete product</button>      

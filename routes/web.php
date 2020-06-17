@@ -28,7 +28,7 @@ Route::get('/adminDashboard', 'AdminController@index')->name('admin');
 
 Route::get('/admin/addProducts', 'Product\AddProductController@index')->name('product');
 
-Route::post('/adminDashboard', 'Product\AddProductController@addProduct');
+Route::post('/adminDashboard-after-uploaded-product', 'Product\AddProductController@addProduct');
 
 Route::get('/admin/showStock', 'Product\ShowStockController@searchAllStock');
 
@@ -40,4 +40,4 @@ Route::get('admin/deleteProduct', 'Product\DeleteProductController@index');
 
 Route::post('admin/deleteProduct', 'Product\DeleteProductController@searchProductByCode');
 
-Route::post('/adminDashboard', 'Product\DeleteProductController@deleteProduct');
+Route::post('/adminDashboard-after-deleted-product', 'Product\DeleteProductController@deleteProduct');
