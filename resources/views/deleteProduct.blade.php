@@ -6,16 +6,16 @@
         <div class="container">
             @if (count($errors) > 0)
                 <div class="alert alert-danger">
-                Some data you tried to upload might be invalid! Try again.<br><br>
-                <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-                </ul>
+                    Some data you tried to upload might be invalid! Try again.<br><br>
+                    <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                    </ul>
                 </div>
             @endif   
            <div class="container">
-                <form action="/admin/deleteProduct" method="POST" enctype="multipart/form-data">
+                <form action="/admin/deleteProduct-search" method="GET" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <h2>Search product by code</h2> <input type="text" name="code">
                     <button type="submit">Search product</button>                
