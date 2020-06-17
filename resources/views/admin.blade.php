@@ -22,17 +22,17 @@
                         <div class="container">
                         <div class="button">
                             @auth
-                                <a href="{{ url('/admin/addProducts') }}">Add products</a>
+                                <a href="{{ url('/admin/addProducts') }}">Add product</a>
                             @endauth
                         </div>
                         <div class="button">
                             @auth
-                                <a href="{{ url('/admin/showStock') }}">View all the stock</a>
+                                <a href="{{ url('/admin/showStock') }}">View current stock</a>
                             @endauth
                         </div>
                         <div class="button">
                             @auth
-                                <a href="{{ url('/admin/modifyProduct') }}">Search and modify a product</a>
+                                <a href="{{ url('/admin/modifyProduct') }}">Modify a product</a>
                             @endauth
                         </div>
                         <div class="button">

@@ -37,3 +37,7 @@ Route::get('admin/modifyProduct', 'Product\ModifyProductController@index');
 Route::post('admin/modifyProduct', 'Product\ModifyProductController@searchProductByCode');
 
 Route::get('admin/deleteProduct', 'Product\DeleteProductController@index');
+
+Route::post('admin/deleteProduct', 'Product\DeleteProductController@searchProductByCode');
+
+Route::post('/adminDashboard', 'Product\DeleteProductController@deleteProduct');
