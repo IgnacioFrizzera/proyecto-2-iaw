@@ -5,15 +5,15 @@
     <body>
         <div class="container">
             @if (count($errors) > 0)
-            <div class="alert alert-danger">
-             Some data you tried to upload might be invalid! Try again.<br><br>
-             <ul>
-              @foreach ($errors->all() as $error)
-               <li>{{ $error }}</li>
-              @endforeach
-             </ul>
-            </div>
-           @endif   
+                <div class="alert alert-danger">
+                Some data you tried to upload might be invalid! Try again.<br><br>
+                <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+                </ul>
+                </div>
+            @endif   
            <div class="container">
                 <form action="/admin/deleteProduct" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
@@ -75,11 +75,11 @@
                         <button type="submit">Delete product</button>      
                     </form>
                 </div>
-                @if(isset($message))
-                    <div class="container">
-                        <h2>{{$message}}</h2>
-                    </div>
-                @endif
+            @endif
+            @if(isset($message))
+                <div class="container">
+                    <h2>{{$message}}</h2>
+                </div>
             @endif
         </div>
     </body>

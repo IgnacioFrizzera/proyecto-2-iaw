@@ -32,12 +32,14 @@ Route::post('/adminDashboard-after-uploaded-product', 'Product\AddProductControl
 
 Route::get('/admin/showStock', 'Product\ShowStockController@searchAllStock');
 
-Route::get('admin/modifyProduct', 'Product\ModifyProductController@index');
+Route::get('/admin/modifyProduct', 'Product\ModifyProductController@index');
 
-Route::post('admin/modifyProduct', 'Product\ModifyProductController@searchProductByCode');
+Route::post('/admin/modifyProduct', 'Product\ModifyProductController@searchProductByCode');
 
-Route::get('admin/deleteProduct', 'Product\DeleteProductController@index');
+Route::post('/adminDashboard-after-modified-product', 'Product\ModifyProductController@modifyProduct');
 
-Route::post('admin/deleteProduct', 'Product\DeleteProductController@searchProductByCode');
+Route::get('/admin/deleteProduct', 'Product\DeleteProductController@index');
+
+Route::post('/admin/deleteProduct', 'Product\DeleteProductController@searchProductByCode');
 
 Route::post('/adminDashboard-after-deleted-product', 'Product\DeleteProductController@deleteProduct');
