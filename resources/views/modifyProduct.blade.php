@@ -87,8 +87,8 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><input type="text" name="new_name" value={{ $searchedName }}></td> 
-                                    <td><input type="text" name="new_description" value={{ $searchedDescription }}></td> 
+                                    <td><input type="text" name="new_name" value="{{ $searchedName }}"></td> 
+                                    <td><input type="text" name="new_description" value="{{ $searchedDescription }}"></td> 
                                     <td><input type="number" step="any" min="0" name="new_price" value={{ $searchedPrice }}></td>
                                     <td><input type="file" name="new_image"></td>  
                                 </tr>
