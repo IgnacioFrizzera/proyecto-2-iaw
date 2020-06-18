@@ -54,7 +54,7 @@
                                 <td>
                                     <?php
                                         $target_dir = "uploads/temp/products/";
-                                        $target_name = "latest_uploaded_product";
+                                        $target_name = $searchedDescription.$searchedName;
                                         $path = $target_dir.$target_name;
                         
                                         $imageBLOB = $value->image;
