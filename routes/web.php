@@ -24,6 +24,8 @@ Route::get('/dashboard', 'HomeController@index')->name('home');
 
 Route::get('/userDashboard', 'UserController@index')->name('user');
 
+Route::get('/searchProduct', 'Product\SearchController@searchByInput');
+
 Route::group(['middleware' => 'admin'], function () {
     
     Route::get('/adminDashboard', 'AdminController@index')->name('admin');

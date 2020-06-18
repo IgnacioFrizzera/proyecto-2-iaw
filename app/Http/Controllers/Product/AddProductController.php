@@ -29,13 +29,13 @@ class AddProductController extends Controller
             'code' => [ 'bail', 'unique:products', 'required', 'string', 'max:10'],
             'description' => ['nullable', 'string', 'max:100'],
             'price' => ['required', 'numeric:min:2:max:10'],
-            'image' => ['image', 'mimes:jpeg,jpg,png,gif', 'max:10240'],
+            'image' => ['image', 'required','mimes:jpeg,jpg,png,gif', 'max:10240'],
             's_stock' => ['numeric'],
             'm_stock' => ['numeric'],
             'l_stock' => ['numeric'],
             'xl_stock' => ['numeric'],
         ]);
-
+            
         $imageDataBLOB = base64_encode(file_get_contents($_FILES['image']['tmp_name']) );
         $validData['image'] = $imageDataBLOB;
 

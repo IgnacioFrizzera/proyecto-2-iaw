@@ -8,9 +8,9 @@
                 <div class="alert alert-danger">
                     Some data you tried to upload might be invalid! Try again.<br><br>
                     <ul>
-                    @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
                     </ul>
                 </div>
             @endif   
