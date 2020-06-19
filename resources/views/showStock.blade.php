@@ -20,13 +20,13 @@
           <?php $i = 1;?>
           <?php foreach($searchedData AS $value):?>
               <tr>
-                  <th scope="row"><?php echo $i;?></th>
-                  <td><?php echo $value->name;?></td>
-                  <td><?php echo $value->code;?></td>
-                  <td><?php echo $value->s_stock;?></td>
-                  <td><?php echo $value->m_stock;?></td>
-                  <td><?php echo $value->l_stock;?></td>
-                  <td><?php echo $value->xl_stock;?></td>
+                  <th scope="row"> {{ $i }} </th>
+                  <td> {{$value->name}} </td>
+                  <td> {{$value->code}} </td>
+                  <td> {{$value->s_stock}} </td>
+                  <td> {{$value->m_stock}} </td>
+                  <td> {{$value->l_stock}} </td>
+                  <td> {{$value->xl_stock}} </td>
               </tr>
               <?php $i = $i + 1;?>
           <?php endforeach;?>

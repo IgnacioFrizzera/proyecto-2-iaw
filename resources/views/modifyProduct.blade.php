@@ -43,7 +43,7 @@
                         <?php foreach($searchedData AS $value):?>
                             <tr>
                                 <td><?php $searchedName = $value->name; echo $searchedName;?></td>
-                                <td><?php echo $value->brand;?></td>
+                                <td> {{$value->brand}} </td>
                                 <td><?php $validCode = $value->code; echo $validCode;?></td>
                                 <td><p><?php $searchedDescription = $value->description; echo $searchedDescription;?></p></td>
                                 <td>$<?php $searchedPrice = $value->price; echo $searchedPrice;?></td>

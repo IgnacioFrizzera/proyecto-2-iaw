@@ -42,19 +42,17 @@
                         <tbody>
                         <?php foreach($searchedData AS $value):?>
                             <tr>
-                                <td><?php echo $value->name;?></td>
-                                <td><?php echo $value->brand;?></td>
+                                <td> {{$value->name}} </td>
+                                <td> {{$value->brand}} </td>
                                 <td><?php $validCode = $value->code; echo $validCode;?></td>
-                                <td><p><?php echo $value->description;?></p></td>
-                                <td>$<?php echo $value->price;?></td>
-                                <td><?php echo $value->s_stock;?></td>
-                                <td><?php echo $value->m_stock;?></td>
-                                <td><?php echo $value->l_stock;?></td>
-                                <td><?php echo $value->xl_stock;?></td>
+                                <td><p> {{$value->description}}</p></td>
+                                <td><p> ${{$value->price}} </p></td>
+                                <td> {{$value->s_stock}} </td>
+                                <td> {{$value->m_stock}} </td>
+                                <td> {{$value->l_stock}} </td>
+                                <td> {{$value->xl_stock}} </td>
                                 <td>
-                                    <?php
-                                        $target_name = $value->name.$validCode;
-                                    ?>
+                                    <?php $target_name = $value->name.$value->code; ?>
                                     <img src="{{ asset('uploads/temp/products/'.$target_name)}}" alt="Image" width="100px" height="100px"> </th> 
                                 </td>
                                 <th>
