@@ -52,7 +52,7 @@
                                 <td><?php $searchedLStock = $value->l_stock; echo $searchedLStock;?></td>
                                 <td><?php $searchedXLStock = $value->xl_stock; echo $searchedXLStock;?></td>
                                 <td>
-                                    <img src="{{ asset('uploads/temp/products/'.$value->code)}}" alt="Image" width="100px" height="100px"> </th> 
+                                    <img src="{{ asset('uploads/temp/products/'.$value->code)}}" alt="Image" width="250px" height="250px"> </th> 
                                 </td>
                                 <th>
                             </tr>
