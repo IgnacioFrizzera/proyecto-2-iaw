@@ -28,6 +28,8 @@ Route::get('/searchProduct', 'Product\SearchController@searchByInput');
 
 Route::get('/purchaseProduct', 'Product\PurchaseController@index');
 
+Route::post('/finish-purchase', 'Product\PurchaseController@purchaseProduct')->middleware('auth');
+
 Route::group(['middleware' => 'admin'], function () {
     
     Route::get('/adminDashboard', 'AdminController@index')->name('admin');

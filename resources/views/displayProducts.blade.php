@@ -7,7 +7,7 @@
                 <div class="container-fluid">
                     @if(isset($searchedProducts))
                         <div class="row">
-                            <?php foreach($searchedProducts AS $key=>$value):?>
+                            <?php foreach($searchedProducts AS $value):?>
                                 <form action="/purchaseProduct" method="GET">
                                     {{ csrf_field() }}
                                     <div class="col-md-4">
@@ -25,10 +25,15 @@
                                         <h2> $<?php echo $value->price;?></h2>
                                         <h3> <?php echo $value->description; ?> </h3>
                                         <input type="hidden" name="code" value= {{ $value->code }} >
-                                        <button type="sumbit">Purchase product</button>
-                                    </div>
+                                        <button class="btn-primary" type="sumbit">Purchase product</button>
+                                    </div>  
                                 </form>
                             <?php endforeach;?>
+                            <div class="container">
+                                <?php 
+                                    echo $searchedProducts->appends(Request::all())->links();
+                                ?>
+                            </div>
                         </div> 
                     @endif
                 </div>

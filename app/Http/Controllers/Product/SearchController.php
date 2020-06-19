@@ -18,7 +18,13 @@ class SearchController extends Controller
         $searchedProducts = Product::where('name', 'ilike', '%'.$validInput['search_text'].'%')
         ->orwhere('description', 'ilike', '%'.$validInput['search_text'].'%')
         ->select('name', 'code', 'description', 'price', 'image')
-        ->get();
+        ->paginate(4);
+
+
+        if(count($searchedProducts) == 0)
+        {
+            return view('welcome')->withMessage('No product matched your search');
+        }
 
         return view('displayProducts')->with('searchedProducts', $searchedProducts);
     }

@@ -87,7 +87,10 @@
                     <form action="/searchProduct" method="GET" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <h2>Search product</h2> <input type="text" name="search_text">
-                        <button type="submit">Search product</button>                
+                        <button type="submit">Search product</button>
+                        @if(isset($message))
+                            <h3> {{$message}} </h3>      
+                        @endif  
                     </form>
                     <br>
                </div>
