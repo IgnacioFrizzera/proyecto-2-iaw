@@ -52,8 +52,7 @@
                                 <td> {{$value->l_stock}} </td>
                                 <td> {{$value->xl_stock}} </td>
                                 <td>
-                                    <?php $target_name = $value->name.$value->code; ?>
-                                    <img src="{{ asset('uploads/temp/products/'.$target_name)}}" alt="Image" width="100px" height="100px"> </th> 
+                                    <img src="{{ asset('uploads/temp/products/'.$value->code)}}" alt="Image" width="100px" height="100px"> </th> 
                                 </td>
                                 <th>
                             </tr>

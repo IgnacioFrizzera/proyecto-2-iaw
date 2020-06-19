@@ -27,7 +27,7 @@ class ModifyProductController extends Controller
     {
         $target_dir = "uploads/temp/products/";
         foreach($searchedData AS $value):
-            $target_name = $value->name.$value->code;
+            $target_name = $value->code;
             $path = $target_dir.$target_name;
     
             $imageBLOB = $value->image;

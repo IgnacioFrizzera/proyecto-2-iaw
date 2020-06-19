@@ -13,7 +13,7 @@ class SearchController extends Controller
     {
         $target_dir = "uploads/temp/products/";
         foreach($searchedProducts AS $value):
-            $target_name = $value->name.$value->code;
+            $target_name = $value->code;
             $path = $target_dir.$target_name;
     
             $imageBLOB = $value->image;
@@ -33,7 +33,7 @@ class SearchController extends Controller
         $searchedProducts = Product::where('name', 'ilike', '%'.$validInput['search_text'].'%')
         ->orWhere('description', 'ilike', '%'.$validInput['search_text'].'%')
         ->select('name', 'code', 'description', 'price', 'image')
-        ->paginate(4);
+        ->paginate(8);
 
         $this->makeImages($searchedProducts);
 

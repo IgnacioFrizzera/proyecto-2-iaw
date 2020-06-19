@@ -52,8 +52,7 @@
                                 <td><?php $searchedLStock = $value->l_stock; echo $searchedLStock;?></td>
                                 <td><?php $searchedXLStock = $value->xl_stock; echo $searchedXLStock;?></td>
                                 <td>
-                                    <?php $target_name = $searchedName.$validCode; ?>
-                                    <img src="{{ asset('uploads/temp/products/'.$target_name)}}" alt="Image" width="100px" height="100px"> </th> 
+                                    <img src="{{ asset('uploads/temp/products/'.$value->code)}}" alt="Image" width="100px" height="100px"> </th> 
                                 </td>
                                 <th>
                             </tr>

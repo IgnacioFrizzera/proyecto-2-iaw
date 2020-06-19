@@ -7,14 +7,12 @@
     <html>
         <body>
             <div class="container">
-                <div class="container-fluid">
                     @if(isset($searchedProducts))
                         <div class="row">
-                            <?php foreach($searchedProducts AS $value):?>
+                            @foreach($searchedProducts as $value)
                                 <form action="/purchaseProduct" method="GET">
                                         <div class="card">
-                                            <?php $target_name = $value->name.$value->code; ?>
-                                            <img src="{{ asset('uploads/temp/products/'.$target_name)}}" alt="Image" width="250px" height="250px">
+                                            <img src="{{ asset('uploads/temp/products/'.$value->code)}}" alt="Image" width="250px" height="250px">
                                             <h1> {{$value->name}} </h1>
                                             <p class="price"> ${{ $value->price }} </p>
                                             <p>{{ $value->description }}</p>
@@ -22,7 +20,7 @@
                                             <p> <button type="sumbit">Purchase product</button> </p>
                                         </div> 
                                 </form>
-                            <?php endforeach;?>
+                            @endforeach
                             <div class="container">
                                 <?php 
                                     echo $searchedProducts->appends(Request::all())->links();
@@ -30,7 +28,6 @@
                             </div>
                         </div> 
                     @endif
-                </div>
             </div>
         </body>
     </html>
