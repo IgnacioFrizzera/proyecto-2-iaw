@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Product;
 use App\Stock;
 
@@ -28,7 +27,7 @@ class DeleteProductController extends Controller
             'code' => [ 'bail', 'required', 'string', 'max:10']
         ]);
 
-        $searchedData = DB::table('products')->where('code', $validCode)
+        $searchedData = Product::where('code', $validCode)
         ->join('product_stock', 'products.code', '=', 'product_stock.product_code')
         ->get();
 

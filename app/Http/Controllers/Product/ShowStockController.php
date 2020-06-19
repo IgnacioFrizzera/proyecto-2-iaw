@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB;
+use App\Product;
 
 class ShowStockController extends Controller
 {
@@ -24,8 +24,8 @@ class ShowStockController extends Controller
      */
     public function searchAllStock()
     {   
-        $searchedData = DB::table('products')
-        ->join('product_stock', 'products.code','=','product_stock.product_code')
+        
+        $searchedData = Product::join('product_stock', 'products.code','=','product_stock.product_code')
         ->select('products.name', 'products.code', 'product_stock.s_stock', 
                 'product_stock.m_stock', 'product_stock.l_stock', 'product_stock.xl_stock')
         ->get();

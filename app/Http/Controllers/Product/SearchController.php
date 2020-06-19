@@ -8,7 +8,22 @@ use Illuminate\Http\Request;
 
 class SearchController extends Controller
 {
+ 
+    private function makeImages($searchedProducts)
+    {
+        $target_dir = "uploads/temp/products/";
+        foreach($searchedProducts AS $value):
+            $target_name = $value->name.$value->code;
+            $path = $target_dir.$target_name;
     
+            $imageBLOB = $value->image;
+
+            $file = fopen($path, "w");
+            fwrite($file, base64_decode($imageBLOB));
+        endforeach; 
+    }
+
+
     public function searchByInput(REQUEST $request)
     {
         $validInput = $request->validate([
@@ -20,6 +35,7 @@ class SearchController extends Controller
         ->select('name', 'code', 'description', 'price', 'image')
         ->paginate(4);
 
+        $this->makeImages($searchedProducts);
 
         if(count($searchedProducts) == 0)
         {
