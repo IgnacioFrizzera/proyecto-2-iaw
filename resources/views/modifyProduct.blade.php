@@ -52,16 +52,7 @@
                                 <td><?php $searchedLStock = $value->l_stock; echo $searchedLStock;?></td>
                                 <td><?php $searchedXLStock = $value->xl_stock; echo $searchedXLStock;?></td>
                                 <td>
-                                    <?php
-                                        $target_dir = "uploads/temp/products/";
-                                        $target_name = $searchedName.$validCode;
-                                        $path = $target_dir.$target_name;
-                        
-                                        $imageBLOB = $value->image;
-
-                                        $file = fopen($path, "w");
-                                        fwrite($file, base64_decode($imageBLOB)); 
-                                    ?>
+                                    <?php $target_name = $searchedName.$validCode; ?>
                                     <img src="{{ asset('uploads/temp/products/'.$target_name)}}" alt="Image" width="100px" height="100px"> </th> 
                                 </td>
                                 <th>

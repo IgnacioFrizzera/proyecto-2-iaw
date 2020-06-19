@@ -23,6 +23,20 @@ class ModifyProductController extends Controller
         return view('modifyProduct');
     }
 
+    private function makeImages($searchedData)
+    {
+        $target_dir = "uploads/temp/products/";
+        foreach($searchedData AS $value):
+            $target_name = $value->name.$value->code;
+            $path = $target_dir.$target_name;
+    
+            $imageBLOB = $value->image;
+
+            $file = fopen($path, "w");
+            fwrite($file, base64_decode($imageBLOB));
+        endforeach; 
+    }
+
     public function searchProductByCode(REQUEST $request)
     {
         $validCode = $request->validate([
@@ -32,6 +46,8 @@ class ModifyProductController extends Controller
         $searchedData = Product::where('code', $validCode)
         ->join('product_stock', 'products.code', '=', 'product_stock.product_code')
         ->get();
+
+        $this->makeImages($searchedData);
 
         if(count($searchedData) > 0)
         {
@@ -86,7 +102,7 @@ class ModifyProductController extends Controller
         $validCode = $request->input('update_code');
 
         $validData = $request->validate([
-            'new_name' => ['required', 'string', 'max:255'],
+            'new_name' => ['required', 'string', 'max:100'],
             'new_description' => ['required', 'string', 'max:100'],
             'new_price' => ['required', 'numeric:min:2:max:10'],
             'new_image' => ['image', 'nullable', 'mimes:jpeg,jpg,png,gif', 'max:10240'],

@@ -24,12 +24,12 @@ class AddProductController extends Controller
     {
         // Verifies if the input data is valid regardless db schema
         $validData = $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'brand' => ['required', 'string', 'max:255'],
-            'code' => [ 'bail', 'unique:products', 'required', 'string', 'max:10'],
-            'description' => ['nullable', 'string', 'max:100'],
+            'name' => ['required', 'string', 'max:100'],
+            'brand' => ['required', 'string', 'max:100'],
+            'code' => [ 'bail', 'unique:products', 'required', 'string', 'max:15'],
+            'description' => ['required', 'string', 'max:100'],
             'price' => ['required', 'numeric:min:2:max:10'],
-            'image' => ['image', 'required','mimes:jpeg,jpg,png,gif', 'max:10240'],
+            'image' => ['image', 'required','mimes:jpeg,jpg,png', 'max:10240'],
             's_stock' => ['numeric'],
             'm_stock' => ['numeric'],
             'l_stock' => ['numeric'],

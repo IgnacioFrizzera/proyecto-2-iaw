@@ -53,14 +53,7 @@
                                 <td><?php echo $value->xl_stock;?></td>
                                 <td>
                                     <?php
-                                        $target_dir = "uploads/temp/products/";
                                         $target_name = $value->name.$validCode;
-                                        $path = $target_dir.$target_name;
-                        
-                                        $imageBLOB = $value->image;
-
-                                        $file = fopen($path, "w");
-                                        fwrite($file, base64_decode($imageBLOB)); 
                                     ?>
                                     <img src="{{ asset('uploads/temp/products/'.$target_name)}}" alt="Image" width="100px" height="100px"> </th> 
                                 </td>

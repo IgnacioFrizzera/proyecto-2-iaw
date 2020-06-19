@@ -21,6 +21,20 @@ class DeleteProductController extends Controller
         return view('deleteProduct');
     }
 
+    private function makeImages($searchedData)
+    {
+        $target_dir = "uploads/temp/products/";
+        foreach($searchedData AS $value):
+            $target_name = $value->name.$value->code;
+            $path = $target_dir.$target_name;
+    
+            $imageBLOB = $value->image;
+
+            $file = fopen($path, "w");
+            fwrite($file, base64_decode($imageBLOB));
+        endforeach; 
+    }
+
     public function searchProductByCode(REQUEST $request)
     {
         $validCode = $request->validate([
@@ -30,6 +44,8 @@ class DeleteProductController extends Controller
         $searchedData = Product::where('code', $validCode)
         ->join('product_stock', 'products.code', '=', 'product_stock.product_code')
         ->get();
+
+        $this->makeImages($searchedData);
 
         if(count($searchedData) > 0)
         {
