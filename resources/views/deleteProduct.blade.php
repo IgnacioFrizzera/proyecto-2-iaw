@@ -40,7 +40,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                        <?php foreach($searchedData AS $key=>$value):?>
+                        <?php foreach($searchedData AS $value):?>
                             <tr>
                                 <td><?php echo $value->name;?></td>
                                 <td><?php echo $value->brand;?></td>

@@ -18,7 +18,7 @@
           </thead>
           <tbody>
           <?php $i = 1;?>
-          <?php foreach($searchedData AS $key=>$value):?>
+          <?php foreach($searchedData AS $value):?>
               <tr>
                   <th scope="row"><?php echo $i;?></th>
                   <td><?php echo $value->name;?></td>
