@@ -10,6 +10,8 @@ class Stock extends Model
 
     public $timestamps = false;
 
+    public $incrementing = false;
+
     protected $primaryKey = 'product_code';
 
     protected $fillable = [

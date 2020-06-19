@@ -54,7 +54,7 @@
                                 <td>
                                     <?php
                                         $target_dir = "uploads/temp/products/";
-                                        $target_name = $value->description.$value->name;
+                                        $target_name = $value->name.$validCode;
                                         $path = $target_dir.$target_name;
                         
                                         $imageBLOB = $value->image;

@@ -16,7 +16,7 @@ class SearchController extends Controller
         ]);
 
         $searchedProducts = Product::where('name', 'ilike', '%'.$validInput['search_text'].'%')
-        ->orwhere('description', 'ilike', '%'.$validInput['search_text'].'%')
+        ->orWhere('description', 'ilike', '%'.$validInput['search_text'].'%')
         ->select('name', 'code', 'description', 'price', 'image')
         ->paginate(4);
 
