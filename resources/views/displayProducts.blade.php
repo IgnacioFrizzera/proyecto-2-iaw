@@ -24,6 +24,7 @@
                                         <img src="{{ asset('uploads/temp/products/'.$target_name)}}" alt="Image" width="250px" height="250px">
                                         <h2> $<?php echo $value->price;?></h2>
                                         <h3> <?php echo $value->description; ?> </h3>
+                                        <input type="hidden" name="code" value= {{ $value->code }} >
                                         <button type="sumbit">Purchase product</button>
                                     </div>
                                 </form>

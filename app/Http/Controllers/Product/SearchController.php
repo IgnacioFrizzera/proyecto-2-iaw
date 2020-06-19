@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 class SearchController extends Controller
 {
     
-
     public function searchByInput(REQUEST $request)
     {
         $validInput = $request->validate([
@@ -18,7 +17,7 @@ class SearchController extends Controller
 
         $searchedProducts = Product::where('name', 'ilike', '%'.$validInput['search_text'].'%')
         ->orwhere('description', 'ilike', '%'.$validInput['search_text'].'%')
-        ->select('name', 'description', 'price', 'image')
+        ->select('name', 'code', 'description', 'price', 'image')
         ->get();
 
         return view('displayProducts')->with('searchedProducts', $searchedProducts);
