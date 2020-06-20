@@ -2,17 +2,17 @@
 
 @section('content')
 <html>
-    <div class="container-fluid">
-      <h1>Purchases history</h1>
+    <div class="container">
         @if(isset($message))
-            <h3>{{$message}}</h3>
-            <div class="button">
-                @auth
+            <h2>{{$message}}</h2>
+            <button type="button">
+                 @auth
                     <a href="{{ url('/') }}"><h4>Start browsing!</h4></a>
                 @endauth
-            </div>
+            </button>
         @endif
       @if(isset($userPurchaseHistory))
+            <h1>Purchases history</h1>
             <table class="table">
                 <thead>
                     <tr>
