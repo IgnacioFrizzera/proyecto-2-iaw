@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 class SearchController extends Controller
 {
  
+    public function index()
+    {
+        return view('displayProducts');
+    }
+
     private function makeImages($searchedProducts)
     {
         $target_dir = "uploads/temp/products/";
@@ -42,6 +47,6 @@ class SearchController extends Controller
             return view('welcome')->withMessage('No product matched your search');
         }
 
-        return view('displayProducts')->with('searchedProducts', $searchedProducts);
+        return $this->index()->with('searchedProducts', $searchedProducts);
     }
 }

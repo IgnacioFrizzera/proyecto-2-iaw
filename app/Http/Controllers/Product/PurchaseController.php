@@ -17,6 +17,11 @@ class PurchaseController extends Controller
         $this->middleware('auth');
     }
 
+    public function index()
+    {
+        return view('purchaseView');
+    }
+
     private function makeImage($productInfo, $productCode)
     {
         $target_dir = "uploads/temp/products/";
@@ -37,7 +42,7 @@ class PurchaseController extends Controller
         ->get();
     }
 
-    public function index(REQUEST $request)
+    public function getProduct(REQUEST $request)
     {
         $productCode = $request->input('code');
 
@@ -51,14 +56,14 @@ class PurchaseController extends Controller
             ->get();
 
         if (count($productStock) == 0) {
-            return view('purchaseView')->withMessage('There is no more stock of the product you wish to purchase, sorry!');
+            return $this->index()->withMessage('There is no more stock of the product you wish to purchase, sorry!');
         }
 
         $productInfo = $this->getProductFromCode($productCode);
 
         $this->makeImage($productInfo, $productCode);
 
-        return view('purchaseView')->with('productStock', $productStock)->with('productInfo', $productInfo)
+        return $this->index()->with('productStock', $productStock)->with('productInfo', $productInfo)
             ->with('productCode', $productCode);
     }
 

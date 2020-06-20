@@ -30,7 +30,7 @@ Route::get('/userDashboard', 'UserController@index')->name('user');
 
 Route::get('/searchProduct', 'Product\SearchController@searchByInput');
 
-Route::get('/purchaseProduct', 'Product\PurchaseController@index');
+Route::get('/purchaseProduct', 'Product\PurchaseController@getProduct');
 
 Route::post('/finish-purchase', 'Product\PurchaseController@purchaseProduct')->middleware('auth');
 
