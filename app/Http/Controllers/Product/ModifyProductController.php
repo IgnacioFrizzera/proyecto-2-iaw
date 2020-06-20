@@ -105,7 +105,7 @@ class ModifyProductController extends Controller
             'new_name' => ['required', 'string', 'max:100'],
             'new_description' => ['required', 'string', 'max:100'],
             'new_price' => ['required', 'numeric:min:2:max:10'],
-            'new_image' => ['image', 'nullable', 'mimes:jpeg,jpg,png,gif', 'max:10240'],
+            'new_image' => ['image', 'nullable', 'mimes:jpeg,jpg,png', 'max:10240'],
             'new_s_stock' => ['required', 'numeric'],
             'new_m_stock' => ['required', 'numeric'],
             'new_l_stock' => ['required', 'numeric'],
