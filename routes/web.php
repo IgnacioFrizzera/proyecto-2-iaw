@@ -24,7 +24,7 @@ Route::get('/home', function () {
 
 Auth::routes(); 
 
-Route::get('/searchProduct', 'Product\SearchController@searchByInput');
+Route::get('/search-product', 'Product\SearchController@searchByInput');
 
 Route::group(['middleware' => 'auth'], function() {
 

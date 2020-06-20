@@ -84,7 +84,7 @@
                     {{ config('app.name') }}
                 </div>
                 <div class="container">
-                    <form action="/searchProduct" method="GET" enctype="multipart/form-data">
+                    <form action="/search-product" method="GET" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <input type="text" name="search_text">
                         <button type="submit">Search product</button>
