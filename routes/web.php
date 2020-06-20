@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', function () {
+    return redirect('/dashboard');
+});
+
 Auth::routes(); 
 
 Route::get('/dashboard', 'HomeController@index')->name('home');
@@ -29,6 +33,8 @@ Route::get('/searchProduct', 'Product\SearchController@searchByInput');
 Route::get('/purchaseProduct', 'Product\PurchaseController@index');
 
 Route::post('/finish-purchase', 'Product\PurchaseController@purchaseProduct')->middleware('auth');
+
+Route::get('/user/showPurchaseHistory', 'Product\ShowPurchaseController@showPurchases');
 
 Route::group(['middleware' => 'admin'], function () {
     

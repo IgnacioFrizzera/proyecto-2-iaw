@@ -12,7 +12,11 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    User has logged in.
+                    <div class="button">
+                        @auth
+                            <a href="{{ url('/user/showPurchaseHistory') }}">View user purchases history</a>
+                        @endauth
+                    </div>
                 </div>
             </div>
         </div>

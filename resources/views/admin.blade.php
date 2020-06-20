@@ -20,30 +20,30 @@
                             </div>
                         @endif
                         <div class="container">
-                        <div class="button">
-                            @auth
-                                <a href="{{ url('/admin/addProducts') }}">Add product</a>
-                            @endauth
-                        </div>
-                        <div class="button">
-                            @auth
-                                <a href="{{ url('/admin/showStock') }}">View current stock</a>
-                            @endauth
-                        </div>
-                        <div class="button">
-                            @auth
-                                <a href="{{ url('/admin/modifyProduct') }}">Modify a product</a>
-                            @endauth
-                        </div>
-                        <div class="button">
-                            @auth
-                                <a href="{{ url('/admin/deleteProduct') }}">Delete a product</a>
-                            @endauth
+                            <div class="button">
+                                @auth
+                                    <a href="{{ url('/admin/addProducts') }}">Add product</a>
+                                @endauth
+                            </div>
+                            <div class="button">
+                                @auth
+                                    <a href="{{ url('/admin/showStock') }}">View current stock</a>
+                                @endauth
+                            </div>
+                            <div class="button">
+                                @auth
+                                    <a href="{{ url('/admin/modifyProduct') }}">Modify a product</a>
+                                @endauth
+                            </div>
+                            <div class="button">
+                                @auth
+                                    <a href="{{ url('/admin/deleteProduct') }}">Delete a product</a>
+                                @endauth
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
