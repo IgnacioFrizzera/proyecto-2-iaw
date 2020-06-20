@@ -27,11 +27,11 @@ class HomeController extends Controller
         $user = Auth::user();
         if($user->type==="admin")
         {
-            return redirect('/adminDashboard');
+            return redirect('/admin-dashboard');
         }
         else if($user->type==="user")
         {
-            return redirect('/userDashboard');
+            return redirect('/user-dashboard');
         }
     }
 }

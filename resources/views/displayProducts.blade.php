@@ -9,7 +9,7 @@
                 <div class="container">
                     <div class="row">
                         @foreach($searchedProducts as $value)
-                            <form action="/purchaseProduct" method="GET">
+                            <form action="/purchase-product" method="GET">
                                 <div class="column">
                                     <div class="card">
                                         <img src="{{ asset('uploads/temp/products/'.$value->code)}}" alt="Image" width="250px" height="250px">

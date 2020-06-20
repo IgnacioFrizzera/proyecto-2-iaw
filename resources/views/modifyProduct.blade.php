@@ -15,7 +15,7 @@
                 </div>
             @endif   
            <div class="container">
-                <form action="/admin/modifyProduct-search" method="GET" enctype="multipart/form-data">
+                <form action="/admin/modify-product-search" method="GET" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <h2>Search product by code</h2> <input type="text" name="code">
                     <button type="submit">Search product</button>                
@@ -64,7 +64,7 @@
                     <h2>Edit the product information</h2>
                 </div>
                 <div class="container">
-                    <form action="/adminDashboard-after-modified-product" method="POST"  enctype="multipart/form-data">
+                    <form action="/admin-dashboard-after-modified-product" method="POST"  enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <table class="table">
                             <thead>

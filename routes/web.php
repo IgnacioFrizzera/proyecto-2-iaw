@@ -30,37 +30,37 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::get('/dashboard', 'HomeController@index');
     
-    Route::get('/purchaseProduct', 'Product\PurchaseController@getProduct');
+    Route::get('/purchase-product', 'Product\PurchaseController@getProduct');
 
     Route::post('/finish-purchase', 'Product\PurchaseController@purchaseProduct');
 
-    Route::get('/showPurchaseHistory', 'Product\ShowPurchaseController@showPurchases');
+    Route::get('/show-purchase-history', 'Product\ShowPurchaseController@showPurchases');
 });
 
 Route::group(['middleware' => 'user'], function() {
 
-    Route::get('/userDashboard', 'UserController@index');
+    Route::get('/user-dashboard', 'UserController@index');
 });
 
 Route::group(['middleware' => 'admin'], function () {
     
-    Route::get('/adminDashboard', 'AdminController@index');
+    Route::get('/admin-dashboard', 'AdminController@index');
 
-    Route::get('/admin/addProducts', 'Product\AddProductController@index');
+    Route::get('/admin/add-products', 'Product\AddProductController@index');
 
-    Route::post('/adminDashboard-after-uploaded-product', 'Product\AddProductController@addProduct');
+    Route::post('/admin-dashboard-after-uploaded-product', 'Product\AddProductController@addProduct');
 
-    Route::get('/admin/showStock', 'Product\ShowStockController@searchAllStock');
+    Route::get('/admin/show-stock', 'Product\ShowStockController@searchAllStock');
 
-    Route::get('/admin/modifyProduct', 'Product\ModifyProductController@index');
+    Route::get('/admin/modify-product', 'Product\ModifyProductController@index');
 
-    Route::get('/admin/modifyProduct-search', 'Product\ModifyProductController@searchProductByCode');
+    Route::get('/admin/modify-product-search', 'Product\ModifyProductController@searchProductByCode');
 
-    Route::post('/adminDashboard-after-modified-product', 'Product\ModifyProductController@modifyProduct');
+    Route::post('/admin-dashboard-after-modified-product', 'Product\ModifyProductController@modifyProduct');
 
-    Route::get('/admin/deleteProduct', 'Product\DeleteProductController@index');
+    Route::get('/admin/delete-product', 'Product\DeleteProductController@index');
 
-    Route::get('/admin/deleteProduct-search', 'Product\DeleteProductController@searchProductByCode');
+    Route::get('/admin/delete-product-search', 'Product\DeleteProductController@searchProductByCode');
 
-    Route::post('/adminDashboard-after-deleted-product', 'Product\DeleteProductController@deleteProduct');
+    Route::post('/admin-dashboard-after-deleted-product', 'Product\DeleteProductController@deleteProduct');
 });

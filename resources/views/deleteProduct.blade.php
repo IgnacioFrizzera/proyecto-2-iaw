@@ -15,7 +15,7 @@
                 </div>
             @endif   
            <div class="container">
-                <form action="/admin/deleteProduct-search" method="GET" enctype="multipart/form-data">
+                <form action="/admin/delete-product-search" method="GET" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <h2>Search product by code</h2> <input type="text" name="code">
                     <button type="submit">Search product</button>                
@@ -59,7 +59,7 @@
                         <?php endforeach;?>
                         </tbody>
                     </table>
-                    <form action="/adminDashboard-after-deleted-product" method="POST">
+                    <form action="/admin-dashboard-after-deleted-product" method="POST">
                         {{ csrf_field() }}
                         <input type="hidden" name="code" value= {{ $validCode }} >
                         <button type="submit">Delete product</button>      

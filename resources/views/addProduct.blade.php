@@ -19,7 +19,7 @@
                 </ul>
                 </div>
             @endif
-            <form action="/adminDashboard-after-uploaded-product" method="POST" enctype="multipart/form-data">
+            <form action="/admin-dashboard-after-uploaded-product" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="container">
                     <div class="row">

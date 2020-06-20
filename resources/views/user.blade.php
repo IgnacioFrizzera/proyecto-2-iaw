@@ -14,7 +14,7 @@
                     @endif
                     <div class="button">
                         @auth
-                            <a href="{{ url('/showPurchaseHistory') }}">View purchase history</a>
+                            <a href="{{ url('/show-purchase-history') }}">View purchase history</a>
                         @endauth
                     </div>
                 </div>
