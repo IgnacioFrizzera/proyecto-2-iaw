@@ -5,10 +5,13 @@ namespace App\Http\Controllers\Product;
 use App\Http\Controllers\Controller;
 use App\Stock;
 use App\Product;
+use App\Purchase;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class PurchaseController extends Controller
 {
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -25,6 +28,13 @@ class PurchaseController extends Controller
             $file = fopen($path, "w");
             fwrite($file, base64_decode($imageBLOB));
         endforeach;
+    }
+
+    private function getProductFromCode($productCode)
+    {
+        return Product::where('code', $productCode)
+        ->select('name', 'description', 'price', 'image')
+        ->get();
     }
 
     public function index(REQUEST $request)
@@ -44,9 +54,7 @@ class PurchaseController extends Controller
             return view('purchaseView')->withMessage('There is no more stock of the product you wish to purchase, sorry!');
         }
 
-        $productInfo = Product::where('code', $productCode)
-            ->select('name', 'description', 'price', 'image')
-            ->get();
+        $productInfo = $this->getProductFromCode($productCode);
 
         $this->makeImage($productInfo, $productCode);
 
@@ -74,7 +82,24 @@ class PurchaseController extends Controller
             case "xl":
                 $productStock->decrement('xl_stock');
                 break;
+
         }
+
+        $productInfo = $this->getProductFromCode($productCode);
+        foreach ($productInfo as $value) :
+            $productName = $value->name;
+            $productPrice = $value->price;
+        endforeach;
+
+        // Log the purchase to the currently logged user
+        $user = Auth::user();
+        Purchase::create([
+            'email' => $user->email,    
+            'product_name' => $productName,
+            'product_price' => $productPrice,
+            'product_size' => strtoupper($productSize)
+        ]);
+
         return view('welcome');
     }
 }
