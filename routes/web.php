@@ -24,23 +24,26 @@ Route::get('/home', function () {
 
 Auth::routes(); 
 
-Route::get('/dashboard', 'HomeController@index')->name('home');
-
-Route::get('/userDashboard', 'UserController@index')->name('user');
-
 Route::get('/searchProduct', 'Product\SearchController@searchByInput');
 
-Route::get('/purchaseProduct', 'Product\PurchaseController@getProduct');
+Route::group(['middleware' => 'auth'], function() {
 
-Route::post('/finish-purchase', 'Product\PurchaseController@purchaseProduct')->middleware('auth');
+    Route::get('/dashboard', 'HomeController@index');
 
-Route::get('/user/showPurchaseHistory', 'Product\ShowPurchaseController@showPurchases');
+    Route::get('/userDashboard', 'UserController@index');
+    
+    Route::get('/purchaseProduct', 'Product\PurchaseController@getProduct');
+
+    Route::post('/finish-purchase', 'Product\PurchaseController@purchaseProduct');
+
+    Route::get('/user/showPurchaseHistory', 'Product\ShowPurchaseController@showPurchases');
+});
 
 Route::group(['middleware' => 'admin'], function () {
     
-    Route::get('/adminDashboard', 'AdminController@index')->name('admin');
+    Route::get('/adminDashboard', 'AdminController@index');
 
-    Route::get('/admin/addProducts', 'Product\AddProductController@index')->name('product');
+    Route::get('/admin/addProducts', 'Product\AddProductController@index');
 
     Route::post('/adminDashboard-after-uploaded-product', 'Product\AddProductController@addProduct');
 
