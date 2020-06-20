@@ -29,14 +29,17 @@ Route::get('/searchProduct', 'Product\SearchController@searchByInput');
 Route::group(['middleware' => 'auth'], function() {
 
     Route::get('/dashboard', 'HomeController@index');
-
-    Route::get('/userDashboard', 'UserController@index');
     
     Route::get('/purchaseProduct', 'Product\PurchaseController@getProduct');
 
     Route::post('/finish-purchase', 'Product\PurchaseController@purchaseProduct');
 
-    Route::get('/user/showPurchaseHistory', 'Product\ShowPurchaseController@showPurchases');
+    Route::get('/showPurchaseHistory', 'Product\ShowPurchaseController@showPurchases');
+});
+
+Route::group(['middleware' => 'user'], function() {
+
+    Route::get('/userDashboard', 'UserController@index');
 });
 
 Route::group(['middleware' => 'admin'], function () {
