@@ -67,6 +67,56 @@ class PurchaseController extends Controller
             ->with('productCode', $productCode);
     }
 
+    /**
+     * Decrements product stock if it's avaliable
+     */
+    private function decrementStock($productSize, $productStock)
+    {
+        $message = 'Sorry! We just ran out of stock on that size!';
+        switch ($productSize) {
+            case "s":
+                if($productStock->s_stock == 0)
+                {
+                    return $message;
+                }
+                else
+                {
+                    $productStock->decrement('s_stock');
+                }
+                break;
+            case "m":
+                if($productStock->m_stock == 0)
+                {
+                    return $message;
+                }
+                else
+                {
+                    $productStock->decrement('m_stock');
+                }
+                break;
+            case "l":
+                if($productStock->l_stock == 0)
+                {
+                    return $message;
+                }
+                else
+                {
+                    $productStock->decrement('l_stock');
+                }
+                break;
+            case "xl":
+                if($productStock->xl_stock == 0)
+                {
+                    return $message;
+                }
+                else
+                {
+                    $productStock->decrement('xl_stock');
+                }
+                break;
+        }
+    }
+
     public function purchaseProduct(REQUEST $request)
     {
         $productCode = $request->input('code');
@@ -74,21 +124,9 @@ class PurchaseController extends Controller
 
         $productStock = Stock::where('product_code', $productCode);
 
-        switch ($productSize) {
-            case "s":
-                $productStock->decrement('s_stock');
-                break;
-            case "m":
-                $productStock->decrement('m_stock');
-                break;
-            case "l":
-                $productStock->decrement('l_stock');
-                break;
-            case "xl":
-                $productStock->decrement('xl_stock');
-                break;
 
-        }
+        // Do ->first() to get the only model obtained from the query
+        $message = $this->decrementStock($productSize, $productStock->first());
 
         $productInfo = $this->getProductFromCode($productCode);
         foreach ($productInfo as $value) :
@@ -105,6 +143,6 @@ class PurchaseController extends Controller
             'product_size' => strtoupper($productSize)
         ]);
 
-        return view('welcome');
+        return view('welcome')->withMessage($message);
     }
 }
