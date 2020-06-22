@@ -18,4 +18,9 @@ class Product extends Model
     protected $fillable = [
         'name', 'brand', 'code','description', 'price', 'image'
     ];
+
+    public function stock()
+    {
+        return $this->hasOne('App\Stock');
+    }
 }
