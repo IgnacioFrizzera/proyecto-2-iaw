@@ -11,7 +11,7 @@
                         @foreach ($productInfo as $info)
                                 {{ csrf_field() }}
                                 <div class="card">
-                                    <img src="{{ asset('uploads/temp/products/'.$productCode)}}" alt="Image" width="250px" height="250px">
+                                    <img class="card-img-top" src="{{ asset('uploads/temp/products/'.$productCode)}}" alt="Image" width="250px" height="250px">
                                     <h1> {{$info->name}} </h1>
                                     <p class="price"> ${{ $info->price }} </p>
                                     <div class="col-sm">
