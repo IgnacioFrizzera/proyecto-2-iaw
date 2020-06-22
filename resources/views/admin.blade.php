@@ -40,6 +40,11 @@
                                     <a href="{{ url('/admin/delete-product') }}">Delete a product</a>
                                 @endauth
                             </div>
+                            <div class="button">
+                                @auth
+                                    <a href="{{ url('/show-purchase-history') }}">View purchases history</a>
+                                @endauth
+                            </div>
                         </div>
                     </div>
                 </div>

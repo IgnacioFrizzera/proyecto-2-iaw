@@ -62,7 +62,11 @@
             @if(isset($message))
                 <div class="container">
                     <h2>{{$message}}</h2>
-                    Continue browsing other products !button to browse here!
+                    <p>
+                            @auth
+                                <a href="{{ url('/') }}"><h4>Continue browsing other products</h4></a>
+                            @endauth
+                    </p>
                 </div>
             @endif
         </body>

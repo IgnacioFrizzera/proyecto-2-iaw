@@ -5,11 +5,11 @@
     <div class="container">
         @if(isset($message))
             <h2>{{$message}}</h2>
-            <button type="button">
-                 @auth
-                    <a href="{{ url('/') }}"><h4>Start browsing!</h4></a>
-                @endauth
-            </button>
+                <p>
+                    @auth
+                        <a href="{{ url('/') }}"><h4>Start browsing!</h4></a>
+                    @endauth
+                </p>
         @endif
       @if(isset($userPurchaseHistory))
             <h1>Purchases history</h1>
