@@ -25,6 +25,21 @@ class ApiRequestsController extends Controller
      */
     public function getProductInfo($code)
     {
+        $productInfo = Product::where('code', $code)
+        ->join('product_stock', 'products.code', '=', 'product_stock.product_code')
+        ->select('products.name', 'products.price', 'product_stock.s_stock',
+                 'product_stock.m_stock', 'product_stock.l_stock', 'product_stock.xl_stock')
+        ->get();
+
+        if(count($productInfo) == 0)
+        {
+            return response(['message' => 'No products where found with that code'], 404);
+        }
+        else
+        {
+            $productInfo->toJson(JSON_PRETTY_PRINT);
+            return response($productInfo, 200);
+        }
     }
 
     /**

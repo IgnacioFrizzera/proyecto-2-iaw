@@ -24,4 +24,5 @@ Route::post('/login', 'Api\AuthController@login');
 
 Route::group(['middleware' => 'auth:api'], function(){
     Route::get('stock', 'Api\ApiRequestsController@getStoreTotalStock');
+    Route::get('product-info/{code}', 'Api\ApiRequestsController@getProductInfo');
 });
