@@ -33,7 +33,7 @@ class ApiRequestsController extends Controller
 
         if(count($productInfo) == 0)
         {
-            return response(['message' => 'No products where found with that code'], 404);
+            return response(['message' => 'No products where found with that code']);
         }
         else
         {
@@ -55,7 +55,16 @@ class ApiRequestsController extends Controller
      */
     public function getStoreTotalStock()
     {
-        $totalStock = Stock::get()->toJson(JSON_PRETTY_PRINT);
-        return response($totalStock, 200);
+        $totalStock = Stock::get();
+
+        if(count($totalStock) == 0)
+        {
+            return response(['message' => 'Store has no stock yet']);
+        }
+        else
+        {
+            $totalStock->toJson(JSON_PRETTY_PRINT);
+            return response($totalStock, 200);
+        }
     }
 }
