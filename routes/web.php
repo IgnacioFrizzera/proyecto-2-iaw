@@ -63,4 +63,6 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/admin/delete-product-search', 'Product\DeleteProductController@searchProductByCode');
 
     Route::post('/admin-dashboard-after-deleted-product', 'Product\DeleteProductController@deleteProduct');
+
+    Route::get('/admin/show-total-sales-history', 'Product\ShowTotalSalesController@showTotalSalesHistory');
 });

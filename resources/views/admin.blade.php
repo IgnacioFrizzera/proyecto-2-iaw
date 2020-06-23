@@ -45,6 +45,11 @@
                                     <a href="{{ url('/show-purchase-history') }}">View purchases history</a>
                                 @endauth
                             </div>
+                            <div class="button">
+                                @auth
+                                    <a href="{{ url('/admin/show-total-sales-history') }}">View shop total sales history</a>
+                                @endauth
+                            </div>
                         </div>
                     </div>
                 </div>
