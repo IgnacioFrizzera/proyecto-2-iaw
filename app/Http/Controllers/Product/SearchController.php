@@ -28,7 +28,10 @@ class SearchController extends Controller
         endforeach; 
     }
 
-
+    /**
+     * Searchs all products in DB that are like the user input
+     * Compares input with the product name and description
+     */
     public function searchByInput(REQUEST $request)
     {
         $validInput = $request->validate([

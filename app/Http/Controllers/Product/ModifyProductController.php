@@ -74,25 +74,20 @@ class ModifyProductController extends Controller
     {
         $this->updateNewStock($validData, $validCode);
 
-        if($_FILES['new_image']['size'] == 0)
-        {
-            Product::where('code', $validCode)
-            ->update([
-                'name' => $validData['new_name'],
-                'description' => $validData['new_description'],
-                'price' => $validData['new_price']
-            ]);
-        }
-        else
+        Product::where('code', $validCode)
+        ->update([
+            'name' => $validData['new_name'],
+            'description' => $validData['new_description'],
+            'price' => $validData['new_price']
+        ]);
+
+        if($_FILES['new_image']['size'] != 0)
         {
             $imageDataBLOB = base64_encode(file_get_contents($_FILES['new_image']['tmp_name']) );
             $validData['new_image'] = $imageDataBLOB;
 
             Product::where('code', $validCode)
             ->update([
-                'name' => $validData['new_name'],
-                'description' => $validData['new_description'],
-                'price' => $validData['new_price'],
                 'image' => $validData['new_image']
             ]);
         }
