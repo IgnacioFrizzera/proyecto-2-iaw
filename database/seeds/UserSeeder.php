@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
+use App\User;
 
 class UserSeeder extends Seeder
 {
@@ -13,16 +13,16 @@ class UserSeeder extends Seeder
     public function run()
     {
 
-        // Inserts generic admin for development testing into users DB
-        DB::table('users')->insert([
+        // Inserts generic admin for development testing
+        User::insert([
             'name' => 'admin',
             'email' => 'generic_admin@admin.com',
-            'password' => bcrypt('1234'),
+            'password' => bcrypt('#Adminrole1234'),
             'type' => 'admin'
         ]);
 
-        // Inserts generic user for development testing into users DB
-        DB::table('users')->insert([
+        // Inserts generic user for development testing
+        User::insert([
             'name' => 'user',
             'email' => 'generic_user@user.com',
             'password' => bcrypt('1234'),
