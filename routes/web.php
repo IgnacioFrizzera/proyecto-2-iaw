@@ -26,6 +26,10 @@ Auth::routes();
 
 Route::get('/search-product', 'Product\SearchController@searchByInput');
 
+Route::get('/search-by-brand', 'Product\SearchController@searchByBrand');
+
+Route::get('/brands', 'Product\ShowBrandsController@displayBrands');
+
 Route::group(['middleware' => 'auth'], function() {
 
     Route::get('/dashboard', 'HomeController@index');

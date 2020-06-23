@@ -52,4 +52,20 @@ class SearchController extends Controller
 
         return $this->index()->with('searchedProducts', $searchedProducts);
     }
+
+    /**
+     * Searchs all products in DB that belong to the specified brand
+     */
+    public function searchByBrand(REQUEST $request)
+    {
+        $brand = $request->input('brand');
+
+        $searchedProducts = Product::where('brand', '=', $brand)
+        ->select('name', 'code', 'description', 'price', 'image')
+        ->paginate(8);
+
+        $this->makeImages($searchedProducts);
+        
+        return $this->index()->with('searchedProducts', $searchedProducts);
+    }
 }
