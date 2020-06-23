@@ -9,6 +9,10 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/views/welcome.css') }}">
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
         <!-- Styles -->
         <style>
             html, body {
@@ -86,13 +90,19 @@
                 <div class="container">
                     <form action="/search-product" method="GET" enctype="multipart/form-data">
                         {{ csrf_field() }}
-                        <input type="text" name="search_text">
-                        <button type="submit">Search product</button>
-                        @if(isset($message))
-                            <h3> {{$message}} </h3>      
-                        @endif  
+                        <div class="container" id="search_box">
+                            <div class="search-box">
+                                <input type="text" class="search-txt" placeholder="Search..." name="search_text">
+                                <button class="search-btn" type="submit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                                </button>
+                            </div>
+                        </div>
                     </form>
-                    <br>
+                    <br><br><br>
+                    @if(isset($message))
+                        <h3> {{$message}} </h3>      
+                    @endif  
                </div>
             </div>
         </div>

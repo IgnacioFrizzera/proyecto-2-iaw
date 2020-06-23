@@ -1,5 +1,6 @@
 /**
- * Script that will handle stock checking and enabling/disabling buttons
+ * Script that will handle enabling/disabling buttons
+ * based on stock availability 
  */
 
 console.log("hello world");
