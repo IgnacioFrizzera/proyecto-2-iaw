@@ -70,10 +70,11 @@ class ModifyProductController extends Controller
         ]);
     }
 
-    private function updateNewInfo($validData, $imageValue, $validCode)
+    private function updateNewInfo($validData, $validCode)
     {
         $this->updateNewStock($validData, $validCode);
-        if($imageValue === null)
+
+        if($_FILES['new_image']['size'] == 0)
         {
             Product::where('code', $validCode)
             ->update([
@@ -111,10 +112,8 @@ class ModifyProductController extends Controller
             'new_l_stock' => ['required', 'numeric'],
             'new_xl_stock' => ['required', 'numeric'],
         ]);
-
-        $imageValue = $request->input('new_image');
         
-        $this->updateNewInfo($validData, $imageValue, $validCode);
+        $this->updateNewInfo($validData, $validCode);
 
         return view('admin')->withMessage('The product was successfully updated!');
     }
