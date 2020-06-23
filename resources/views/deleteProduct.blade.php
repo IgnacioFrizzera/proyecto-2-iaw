@@ -8,9 +8,9 @@
                 <div class="alert alert-danger">
                     Some data you tried to upload might be invalid! Try again.<br><br>
                     <ul>
-                    @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
                     </ul>
                 </div>
             @endif   
@@ -59,6 +59,11 @@
                         <?php endforeach;?>
                         </tbody>
                     </table>
+                    <div class="alert alert-danger">
+                        <strong>
+                            Once you delete the product it will be gone forever and you will have to re-upload it
+                        </strong>
+                    </div>
                     <form action="/admin-dashboard-after-deleted-product" method="POST">
                         {{ csrf_field() }}
                         <input type="hidden" name="code" value= {{ $validCode }} >

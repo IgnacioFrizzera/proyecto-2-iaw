@@ -13,7 +13,7 @@
                                 <form action="/purchase-product" method="GET">
                                     <div class="card">
                                         <img class="card-img-top" src="{{ asset('uploads/temp/products/'.$value->code)}}" alt="Image" width="250px" height="250px">
-                                        <h1> {{$value->name}} </h1>
+                                        <h2> {{$value->name}} </h2>
                                         <p class="price"> ${{ $value->price }} </p>
                                         <p>{{ $value->description }}</p>    
                                         <input type="hidden" name="code" value = {{$value->code}} >

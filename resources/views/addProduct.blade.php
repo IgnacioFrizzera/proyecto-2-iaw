@@ -11,12 +11,12 @@
             <br>
             @if (count($errors) > 0)
                 <div class="alert alert-danger">
-                Some data you tried to upload might be invalid! Try again.<br><br>
-                <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-                </ul>
+                    Some data you tried to upload might be invalid! Try again.<br><br>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
                 </div>
             @endif
             <form action="/admin-dashboard-after-uploaded-product" method="POST" enctype="multipart/form-data">
@@ -32,7 +32,7 @@
                                 <br><br>
                                 <input type="text" name="code" placeholder="Product code">
                                 <br><br>
-                                <input type="text" name="description" placeholder="Product description">
+                                <textarea class="autofit" name="description" placeholder="Product description"></textarea>
                                 <br><br>
                                 <input type="number" step="any" min="0" name="price" placeholder="Product price">
                                 <br><br>
