@@ -42,7 +42,7 @@ Route::group(['middleware' => 'user'], function() {
     Route::get('/user-dashboard', 'UserController@index');
 });
 
-Route::group(['middleware' => 'admin'], function () {
+Route::group(['middleware' => 'auth', 'admin'], function () {
     
     Route::get('/admin-dashboard', 'AdminController@index');
 

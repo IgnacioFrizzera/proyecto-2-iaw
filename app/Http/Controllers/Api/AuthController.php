@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 Use App\User;
 
 class AuthController extends Controller
@@ -15,11 +16,12 @@ class AuthController extends Controller
         $validData = $request->validate([
             'name' => ['required', 'string', 'max:100'],
             'email' => ['required', 'email', 'unique:users'],
-            'password' => ['required', 'confirmed']
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
 
-        $validData['password'] = bcrypt($validData['password']);
 
+        $validData['password'] = Hash::make($validData['password']);
+    
         $user = User::create($validData);
 
         $accessToken = $user->createToken('authToken')->accessToken;
