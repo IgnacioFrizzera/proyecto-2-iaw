@@ -143,6 +143,11 @@ class PurchaseController extends Controller
             'product_size' => strtoupper($productSize)
         ]);
 
+        if(empty($message))
+        {
+            $message = 'Thank you for your purchase!';
+        }
+
         return view('welcome')->withMessage($message);
     }
 }
