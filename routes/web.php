@@ -30,6 +30,8 @@ Route::get('/search-by-brand', 'Product\SearchController@searchByBrand')->name('
 
 Route::get('/brands', 'Product\ShowBrandsController@displayBrands')->name('brands');
 
+Route::get('/about', 'AboutController@index')->name('about');
+
 Route::group(['middleware' => 'auth'], function() {
 
     Route::get('/dashboard', 'HomeController@index')->name('dashboard');
