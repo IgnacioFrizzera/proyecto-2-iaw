@@ -14,9 +14,9 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
 
         // Fist we generate some products with their respective codes
-        $this->call(ProductSeeder::class);
+        //$this->call(ProductSeeder::class);
 
         // After the products are made, we make the stock associated with each product code
-        $this->call(StockSeeder::class);
+        //$this->call(StockSeeder::class);
     }
 }

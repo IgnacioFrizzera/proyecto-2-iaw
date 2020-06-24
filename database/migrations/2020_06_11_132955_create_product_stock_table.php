@@ -15,6 +15,7 @@ class CreateProductStockTable extends Migration
     {
         Schema::create('product_stock', function (Blueprint $table) {
             $table->string('product_code', 10)->primary();
+            $table->foreign('product_code')->references('code')->on('products')->onDelete('cascade');
             $table->integer('s_stock')->unsigned()->default(0);
             $table->integer('m_stock')->unsigned()->default(0);
             $table->integer('l_stock')->unsigned()->default(0);
