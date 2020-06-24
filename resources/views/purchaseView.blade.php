@@ -15,7 +15,7 @@
                                     <h1> {{$info->name}} </h1>
                                     <p class="price"> ${{ $info->price }} </p>
                                     <div class="col-sm">
-                                        <form action="/finish-purchase" method="POST">
+                                        <form action=" {{ route('finish-purchase') }}" method="POST">
                                             {{ csrf_field() }}
                                             <div class="row">
                                                 <input type="hidden" value= "s" name="size">

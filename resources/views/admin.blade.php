@@ -22,32 +22,32 @@
                         <div class="container">
                             <div class="button">
                                 @auth
-                                    <a href="{{ url('/admin/add-products') }}">Add product</a>
+                                    <a href=" {{ route('add-product') }}">Add product</a>
                                 @endauth
                             </div>
                             <div class="button">
                                 @auth
-                                    <a href="{{ url('/admin/show-stock') }}">View current stock</a>
+                                    <a href="{{ route('show-stock') }}">View current stock</a>
                                 @endauth
                             </div>
                             <div class="button">
                                 @auth
-                                    <a href="{{ url('/admin/modify-product') }}">Modify a product</a>
+                                    <a href="{{ route('modify') }}">Modify a product</a>
                                 @endauth
                             </div>
                             <div class="button">
                                 @auth
-                                    <a href="{{ url('/admin/delete-product') }}">Delete a product</a>
+                                    <a href="{{ route('delete') }}">Delete a product</a>
                                 @endauth
                             </div>
                             <div class="button">
                                 @auth
-                                    <a href="{{ url('/show-purchase-history') }}">View purchases history</a>
+                                    <a href="{{ route('show-purchase-history') }}">View purchases history</a>
                                 @endauth
                             </div>
                             <div class="button">
                                 @auth
-                                    <a href="{{ url('/admin/show-total-sales-history') }}">View shop total sales history</a>
+                                    <a href="{{ route('show-sales') }}">View shop total sales history</a>
                                 @endauth
                             </div>
                         </div>

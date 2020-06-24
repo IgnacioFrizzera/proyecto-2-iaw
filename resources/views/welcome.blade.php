@@ -71,9 +71,10 @@
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
-                    <a href="{{ url('/brands') }}">Our brands</a>
+                    <a href="{{ url('/brands') }}">About us</a>
+                    <a href="{{ route('brands') }}">Our brands</a>
                     @auth
-                        <a href="{{ url('/dashboard') }}">Dashboard</a>
+                        <a href="{{ route('dashboard') }}">Dashboard</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
@@ -89,7 +90,7 @@
                     {{ config('app.name') }}
                 </div>
                 <div class="container">
-                    <form action="/search-product" method="GET" enctype="multipart/form-data">
+                    <form action= "{{ route('search-products') }}" method="GET" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="container" id="search_box">
                             <div class="search-box">
