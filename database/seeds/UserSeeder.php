@@ -16,8 +16,8 @@ class UserSeeder extends Seeder
         // Inserts generic admin for development testing
         User::insert([
             'name' => 'admin',
-            'email' => 'generic_admin@admin.com',
-            'password' => bcrypt('#Adminrole1234'),
+            'email' => 'testingautomat123@gmail.com',
+            'password' => bcrypt('ignacio91'),
             'type' => 'admin'
         ]);
 
