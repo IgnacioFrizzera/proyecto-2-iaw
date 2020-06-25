@@ -12,6 +12,9 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
+        
+        $img = file_get_contents('https://www.babyshop.com/images/660844/x_large.jpg');
+        $data = base64_encode($img);
         // Insert product with code: NHBW1220
         Product::insert([
             'name' => 'Nike Hoodie AB-1',
@@ -19,9 +22,11 @@ class ProductSeeder extends Seeder
             'code' => 'NHBW1220',
             'description' => 'Nike hoodie AB-1 model, black and white, sportswear',
             'price' => 79.99,
-            'image' => '0'
+            'image' => $data
         ]);
 
+        $img = file_get_contents('https://www.tactics.com/a/ba16/o/vans-vans-x-antihero-wired-hoodie-black.jpg');
+        $data = base64_encode($img);
         // Insert product with code: VAH3221
         Product::insert([
             'name' => 'Vans anti hero',
@@ -29,9 +34,11 @@ class ProductSeeder extends Seeder
             'code' => 'VAH3221',
             'description' => 'Vans anti hero hoodie, black with picture on back',
             'price' => 59.99,
-            'image' => '0'
+            'image' => $data
         ]);
 
+        $img = file_get_contents('https://www.serishirts.com/17076-22458-tm_large_default/t-shirt-multipass-leeloo-5th-element-white.jpg');
+        $data = base64_encode($img);
         // Insert product with code: ETG1334
         Product::insert([
             'name' => 'Element t-shirt',
@@ -39,9 +46,11 @@ class ProductSeeder extends Seeder
             'code' => 'ETG1334',
             'description' => 'Grey element t-shirt multipass model',
             'price' => 17.99,
-            'image' => '0'
+            'image' => $data
         ]);
 
+        $img = file_get_contents('https://kickz.akamaized.net/us/media/images/p/600/converse-CORE_WORDMARK_T_SHIRT-Black-2.jpg');
+        $data = base64_encode($img);
         // Insert product with code: CBS3333
         Product::insert([
             'name' => 'Converse black shirt',
@@ -49,9 +58,11 @@ class ProductSeeder extends Seeder
             'code' => 'CBS3333',
             'description' => 'Converse black shirt with logo on front side',
             'price' => 17.99,
-            'image' => '0'
+            'image' => $data
         ]);
 
+        $img = file_get_contents('https://buybits.com/media/catalog/product/r/i/rip-n-dip-my-little-nerm-hoodie-1_1_1_1.jpg');
+        $data = base64_encode($img);
         // Insert product with code: RND0110
         Product::insert([
             'name' => 'Rip n Dip - must be nice',
@@ -59,9 +70,11 @@ class ProductSeeder extends Seeder
             'code' => 'RND0110',
             'description' => 'Rip n Dip must be nice hoodie, limited edition',
             'price' => 119.99,
-            'image' => '0'
+            'image' => $data
         ]);
 
+        $img = file_get_contents('https://www.trekkinn.com/f/13654/136542825/superdry-super-multi-jacket.jpg');
+        $data = base64_encode($img);
         // Insert product with code: SDJ1111
         Product::insert([
             'name' => 'Superdry Super multi jacket',
@@ -69,7 +82,7 @@ class ProductSeeder extends Seeder
             'code' => 'SDJ1111',
             'description' => 'Superdry jacket, model Super.',
             'price' => 79.99,
-            'image' => '0'
+            'image' => $data
         ]);
     }
 }
