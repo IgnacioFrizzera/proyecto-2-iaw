@@ -17,6 +17,9 @@ class SearchController extends Controller
     private function makeImages($searchedProducts)
     {
         $target_dir = "uploads/temp/products/";
+        if (!file_exists($target_dir)){
+            mkdir($target_dir, 0777, true);
+        }
         foreach($searchedProducts AS $value):
             $target_name = $value->code;
             $path = $target_dir.$target_name;

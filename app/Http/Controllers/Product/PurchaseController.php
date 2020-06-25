@@ -25,6 +25,9 @@ class PurchaseController extends Controller
     private function makeImage($productInfo, $productCode)
     {
         $target_dir = "uploads/temp/products/";
+        if (!file_exists($target_dir)){
+            mkdir($target_dir, 0777, true);
+        }
         foreach ($productInfo as $value) :
             $path = $target_dir . $productCode;
 
