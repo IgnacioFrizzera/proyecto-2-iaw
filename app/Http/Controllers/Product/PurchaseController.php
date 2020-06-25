@@ -129,19 +129,19 @@ class PurchaseController extends Controller
             $productPrice = $value->price;
         endforeach;
 
-        // Log the purchase to the currently logged user
-        $user = Auth::user();
-        Purchase::create([
-            'email' => $user->email,    
-            'product_name' => $productName,
-            'product_price' => $productPrice,
-            'product_size' => strtoupper($productSize)
-        ]);
-
         // If message is empty it means there was stock available so the purchase was made
         if(empty($message))
         {
             $message = 'Thank you for your purchase!';
+            
+            // Log the purchase to the currently logged user
+            $user = Auth::user();
+            Purchase::create([
+                'email' => $user->email,    
+                'product_name' => $productName,
+                'product_price' => $productPrice,
+                'product_size' => strtoupper($productSize)
+            ]);
         }
 
         return view('welcome')->withMessage($message);
