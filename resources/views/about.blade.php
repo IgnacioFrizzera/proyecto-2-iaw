@@ -12,8 +12,8 @@
             <div class="container">
                 <div class="container" id="p_cont">
                     <p>
-                        My Generic Online Shop is a fresh project made by <a href="https://github.com/IgnacioFrizzera">Ignacio Frizzera</a>.
-                        The main focus of it was to learn the <a href="https://laravel.com/">Laravel</a> framework and make a web application with it.
+                        My Generic Online Shop is a fresh project made by <a href="https://github.com/IgnacioFrizzera" target="_blank">Ignacio Frizzera</a>.
+                        The main focus of it was to learn the <a href="https://laravel.com/" target="_blank">Laravel</a> framework and make a web application with it.
                         Personally I made an 'e-commerce' type page so that in the future I could use this project as a palette to make multiple e-commerce pages for different users in little time.
                     </p>
                     <div class="container">
