@@ -33,7 +33,7 @@
                     </div>
                     <br>
                     <p>
-                        All the buttons animations in the <a href="{{ route('brands') }}">'Our Brands'</a> section are made by <a href="https://fdossena.com/?p=home.frag">Federico Dossena</a>. Be sure to check his web page to see more of his work.
+                        All the buttons animations in the <a href="{{ route('brands') }}">'Our Brands'</a> section are made by <a href="https://fdossena.com/?p=home.frag" target="_blank">Federico Dossena</a>. Be sure to check his web page to see more of his work.
                     </p>
                     <br>                    
                 </div>
