@@ -78,42 +78,34 @@ class PurchaseController extends Controller
         $message = 'Sorry! We just ran out of stock on that size!';
         switch ($productSize) {
             case "s":
-                if($productStock->s_stock == 0)
-                {
+                if($productStock->s_stock == 0) {
                     return $message;
                 }
-                else
-                {
+                else {
                     $productStock->decrement('s_stock');
                 }
                 break;
             case "m":
-                if($productStock->m_stock == 0)
-                {
+                if($productStock->m_stock == 0) {
                     return $message;
                 }
-                else
-                {
+                else {
                     $productStock->decrement('m_stock');
                 }
                 break;
             case "l":
-                if($productStock->l_stock == 0)
-                {
+                if($productStock->l_stock == 0) {
                     return $message;
                 }
-                else
-                {
+                else {
                     $productStock->decrement('l_stock');
                 }
                 break;
             case "xl":
-                if($productStock->xl_stock == 0)
-                {
+                if($productStock->xl_stock == 0) {
                     return $message;
                 }
-                else
-                {
+                else {
                     $productStock->decrement('xl_stock');
                 }
                 break;
