@@ -80,8 +80,104 @@ class ProductSeeder extends Seeder
             'name' => 'Superdry Super multi jacket',
             'brand' => 'Superdry',
             'code' => 'SDJ1111',
-            'description' => 'Superdry jacket, model Super.',
+            'description' => 'Superdry jacket, model Super',
             'price' => 79.99,
+            'image' => $data
+        ]);
+
+        $img = file_get_contents('https://cdn.shoplightspeed.com/shops/603507/files/18432304/vans-vans-retro-sport-anorak-jacket.jpg');
+        $data = base64_encode($img);
+        // Insert product with code: VAJ0221
+        Product::insert([
+            'name' => 'Retro anorak',
+            'brand' => 'Vans',
+            'code' => 'VAJ0221',
+            'description' => 'Vans retro anorak jacket, pink white and blue',
+            'price' => 89.99,
+            'image' => $data
+        ]);
+
+        $img = file_get_contents('https://www.natterjacks.com/images/vans-torrey-jacket-camo-p98242-363243_zoom.jpg');
+        $data = base64_encode($img);
+        // Insert product with code: VCJ1121
+        Product::insert([
+            'name' => 'Cammo jacket',
+            'brand' => 'Vans',
+            'code' => 'VCJ1121',
+            'description' => 'Vans cammo jacket',
+            'price' => 59.99,
+            'image' => $data
+        ]);
+        
+        $img = file_get_contents('https://paulreader.com.au/wp-content/uploads/2018/10/Slide1-50.jpg');
+        $data = base64_encode($img);
+        // Insert product with code: BGR0011
+        Product::insert([
+            'name' => 'Breack jacket Golden Rod',
+            'brand' => 'Burton',
+            'code' => 'BGR0011',
+            'description' => 'Burton golden rod jacket. Ideal for snow sports',
+            'price' => 109.99,
+            'image' => $data
+        ]);
+
+        $img = file_get_contents('https://www.yoox.com/images/items/41/41848246re_14_f.jpg');
+        $data = base64_encode($img);
+        // Insert product with code: CGB1010
+        Product::insert([
+            'name' => 'Columbia winter jacket',
+            'brand' => 'Columbia',
+            'code' => 'CGB1010',
+            'description' => 'Columbia green and black jacket',
+            'price' => 99.99,
+            'image' => $data
+        ]);
+
+        $img = file_get_contents('https://www.trekkinn.com/f/13739/137393234/columbia-bloomingport-windbreaker.jpg');
+        $data = base64_encode($img);
+        // Insert product with code: CWB1110
+        Product::insert([
+            'name' => 'Columbia windbreaker',
+            'brand' => 'Columbia',
+            'code' => 'CWB1110',
+            'description' => 'Columbia windbreaker jacket',
+            'price' => 139.99,
+            'image' => $data
+        ]);
+
+        $img = file_get_contents('https://cdn.shopify.com/s/files/1/0177/2424/products/3m-jacket_1200x1200.jpg');
+        $data = base64_encode($img);
+        // Insert product with code: RND0010
+        Product::insert([
+            'name' => 'Multi cats jacket',
+            'brand' => 'Rip n Dip',
+            'code' => 'RND0010',
+            'description' => 'Rip n Dip black jacket with cats',
+            'price' => 199.99,
+            'image' => $data
+        ]);
+
+        $img = file_get_contents('https://cdn.shopify.com/s/files/1/2166/8231/products/tf-coaches-jacket-primary-01_767x.jpg');
+        $data = base64_encode($img);
+        // Insert product with code: TFJ1111
+        Product::insert([
+            'name' => 'Retro jacket',
+            'brand' => 'Teddy Fresh',
+            'code' => 'TFJ1111',
+            'description' => 'Teddy fresh vintage jacket',
+            'price' => 89.99,
+            'image' => $data
+        ]);
+
+        $img = file_get_contents('https://scene7.zumiez.com/is/image/zumiez/pdp_hero/Empyre-Pauly-Reflective-Black-%26-Grey-Anorak-Jacket-_318251-front-US.jpg');
+        $data = base64_encode($img);
+        // Insert product with code: EPJ1111
+        Product::insert([
+            'name' => 'Reflective jacket',
+            'brand' => 'Empyre Pauly',
+            'code' => 'EPJ1111',
+            'description' => 'Empyre Pauly reflective black jacket',
+            'price' => 139.99,
             'image' => $data
         ]);
     }

@@ -66,5 +66,77 @@ class StockSeeder extends Seeder
             'l_stock' => 1,
             'xl_stock' => 1,
         ]);
+
+        // Insert stock with code: VAJ0221
+        Stock::insert([
+            'product_code' => 'VAJ0221',
+            's_stock' => 0,
+            'm_stock' => 2,
+            'l_stock' => 2,
+            'xl_stock' => 1,
+        ]);
+
+        // Insert stock with code: VCJ1121
+        Stock::insert([
+            'product_code' => 'VCJ1121',
+            's_stock' => 1,
+            'm_stock' => 1,
+            'l_stock' => 2,
+            'xl_stock' => 1,
+        ]);
+
+        // Insert stock with code: BGR0011
+        Stock::insert([
+            'product_code' => 'BGR0011',
+            's_stock' => 0,
+            'm_stock' => 0,
+            'l_stock' => 1,
+            'xl_stock' => 1,
+        ]);
+
+        // Insert stock with code: CGB1010
+        Stock::insert([
+            'product_code' => 'CGB1010',
+            's_stock' => 1,
+            'm_stock' => 0,
+            'l_stock' => 1,
+            'xl_stock' => 0,
+        ]);
+
+        // Insert stock with code: CWB1110
+        Stock::insert([
+            'product_code' => 'CWB1110',
+            's_stock' => 1,
+            'm_stock' => 1,
+            'l_stock' => 1,
+            'xl_stock' => 0,
+        ]);
+
+        // Insert stock with code: RND0010
+        Stock::insert([
+            'product_code' => 'RND0010',
+            's_stock' => 0,
+            'm_stock' => 0,
+            'l_stock' => 1,
+            'xl_stock' => 0,
+        ]);
+
+        // Insert stock with code: TFJ1111
+        Stock::insert([
+            'product_code' => 'TFJ1111',
+            's_stock' => 1,
+            'm_stock' => 1,
+            'l_stock' => 1,
+            'xl_stock' => 1,
+        ]);
+
+        // Insert stock with code: EPJ1111
+        Stock::insert([
+            'product_code' => 'EPJ1111',
+            's_stock' => 1,
+            'm_stock' => 1,
+            'l_stock' => 1,
+            'xl_stock' => 1,
+        ]);
     }
 }
