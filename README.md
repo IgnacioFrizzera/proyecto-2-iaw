@@ -12,9 +12,9 @@ Luego habrá otra tabla que tendrá los talles de los productos con el respectiv
 
 También habrá una tabla de usuarios que mantenga el registro de todos los usuarios con su nombre de usuario, email y contraseña, la cual se utilizará para permitir el loggin a la página y en el caso de que un usuario desee recuperar su contraseña, enviarle un email con esta.
 
-# Api
+# API
 Se desarrollará una API que permita obtener la siguiente información de la página:
-### Stock total de la página:cada entrada representará un producto con su respectivo código y el stock disponible en cada talle.
+### Stock total de la página: cada entrada representará un producto con su respectivo código y el stock disponible en cada talle.
 ### Información de un producto específico: se brindará el código del producto a buscar a la API y esta retornará información de este.
 
 ## Uso de la API
