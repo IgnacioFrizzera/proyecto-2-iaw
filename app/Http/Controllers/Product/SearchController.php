@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Product;
 use Illuminate\Http\Request;
 
+/**
+ * Controller that will handle most of the searchs made
+ * Such as by input or by brand
+ */
 class SearchController extends Controller
 {
  
@@ -14,6 +18,9 @@ class SearchController extends Controller
         return view('displayProducts');
     }
 
+    /**
+     * Makes an image from the product image field
+    */
     private function makeImages($searchedProducts)
     {
         $target_dir = "uploads/temp/products/";

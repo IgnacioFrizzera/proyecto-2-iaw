@@ -7,6 +7,9 @@ use App\Product;
 use App\Stock;
 use Illuminate\Http\Request;
 
+/**
+ * Controller that will handle the add a product process
+ */
 class AddProductController extends Controller
 {
 
@@ -20,6 +23,9 @@ class AddProductController extends Controller
         return view('addProduct');
     }
 
+    /**
+     * Adds a product and it's stock to storage
+     */
     public function addProduct(REQUEST $request)
     {
         // Verifies if the input data is valid regardless db schema
@@ -35,7 +41,8 @@ class AddProductController extends Controller
             'l_stock' => ['numeric'],
             'xl_stock' => ['numeric'],
         ]);
-            
+        
+        // Get the uploaded file and encode it to base 64
         $imageDataBLOB = base64_encode(file_get_contents($_FILES['image']['tmp_name']) );
         $validData['image'] = $imageDataBLOB;
 

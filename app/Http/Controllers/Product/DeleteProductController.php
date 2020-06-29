@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Product;
 
+/**
+ * Controller that will handle the delete a product process 
+ */
 class DeleteProductController extends Controller
 {
 
@@ -20,6 +23,9 @@ class DeleteProductController extends Controller
         return view('deleteProduct');
     }
 
+    /**
+     * Makes an image from the product image field
+     */
     private function makeImages($searchedData)
     {
         $target_dir = "uploads/temp/products/";
@@ -38,6 +44,11 @@ class DeleteProductController extends Controller
         endforeach; 
     }
 
+    /**
+     * Searchs product by code
+     * In case no product was found returns with message
+     * Other case returns the product with it's info
+     */
     public function searchProductByCode(REQUEST $request)
     {
         $validCode = $request->validate([
@@ -60,6 +71,10 @@ class DeleteProductController extends Controller
         }
     }
 
+    /**
+     * Deletes a product from storage
+     * Stock is automatically deleted due to foreign keys, etc.
+     */
     public function deleteProduct(REQUEST $request)
     {   
         $validCode = $request->input('code');

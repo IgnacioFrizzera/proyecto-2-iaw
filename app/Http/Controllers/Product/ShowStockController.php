@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Product;
 use App\Http\Controllers\Controller;
 use App\Product;
 
+/**
+ * Controller that will handle the process of returning
+ * all the stock in storage
+ */
 class ShowStockController extends Controller
 {
     
@@ -19,7 +23,7 @@ class ShowStockController extends Controller
     }
 
     /**
-     * Gets all the store stock
+     * Gets all the stock
      * Returns name, code and stock of every size of each product
      */
     public function searchAllStock()

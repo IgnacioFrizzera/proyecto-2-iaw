@@ -8,7 +8,7 @@ use App\Product;
 use App\Stock;
 
 /**
- * Controller that will handle all of the admin search actions
+ * Controller that will handle the modify a product process
  */
 class ModifyProductController extends Controller
 {
@@ -23,6 +23,9 @@ class ModifyProductController extends Controller
         return view('modifyProduct');
     }
 
+    /**
+     * Makes an image from the product image field
+    */
     private function makeImages($searchedData)
     {
         $target_dir = "uploads/temp/products/";
@@ -40,6 +43,11 @@ class ModifyProductController extends Controller
         endforeach; 
     }
 
+    /**
+     * Searchs product by code
+     * In case no product was found returns with message
+     * Other case returns the product with it's info
+    */
     public function searchProductByCode(REQUEST $request)
     {
         $validCode = $request->validate([
@@ -62,6 +70,9 @@ class ModifyProductController extends Controller
         }
     }
 
+    /**
+     * Updates searched product stock based on admin's input
+     */
     private function updateNewStock($validData, $validCode)
     {
         Stock::where('product_code', $validCode)
@@ -73,6 +84,9 @@ class ModifyProductController extends Controller
         ]);
     }
 
+    /**
+     * Updates searched product info based on admin's input
+     */
     private function updateNewInfo($validData, $validCode)
     {
         $this->updateNewStock($validData, $validCode);
@@ -96,6 +110,9 @@ class ModifyProductController extends Controller
         }
     }
 
+    /**
+     * Modifies a product based on admin's input
+     */
     public function modifyProduct(REQUEST $request)
     {   
         $validCode = $request->input('update_code');

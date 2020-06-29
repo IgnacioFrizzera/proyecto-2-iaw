@@ -7,7 +7,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Purchase;
 
-
+/**
+ * Controller that will handle the process of returning
+ * all the purchases made by the currently logged user
+ */
 class ShowPurchaseController extends Controller
 {
     
@@ -22,6 +25,10 @@ class ShowPurchaseController extends Controller
         return view('showPurchaseView');
     }
 
+    /**
+     * Returns all the purchases made by the currently logged user
+     * If there are none, shows link to start browsing
+     */
     public function showPurchases()
     {
         $currentUserEmail = Auth::user()->email;

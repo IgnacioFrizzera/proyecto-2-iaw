@@ -9,6 +9,9 @@ use App\Purchase;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
+/**
+ * Controller that will handle a purchase process
+ */
 class PurchaseController extends Controller
 {
 
@@ -22,6 +25,9 @@ class PurchaseController extends Controller
         return view('purchaseView');
     }
 
+    /**
+     * Makes an image from the product image field
+    */
     private function makeImage($productInfo, $productCode)
     {
         $target_dir = "uploads/temp/products/";
@@ -38,6 +44,10 @@ class PurchaseController extends Controller
         endforeach;
     }
 
+    /**
+     * Returns name, description, price and image field from a product with the
+     * same code as $productCode
+     */
     private function getProductFromCode($productCode)
     {
         return Product::where('code', $productCode)
@@ -45,10 +55,16 @@ class PurchaseController extends Controller
         ->get();
     }
 
+    /**
+     * Gets a product if it has stock available.
+     * If there's no stock available message is shown
+     * Other case, the product is returned
+     */
     public function getProduct(REQUEST $request)
     {
         $productCode = $request->input('code');
 
+        // Checks if there's stock of any size of the product
         $productStock = Stock::where('product_code', $productCode)
             ->where(function ($query) {
                 $query->orWhere('s_stock', '>', 0)
@@ -58,10 +74,12 @@ class PurchaseController extends Controller
             })
             ->get();
 
+        // If there is no stock returns message
         if (count($productStock) == 0) {
             return $this->index()->withMessage('There is no more stock of the product you wish to purchase, sorry!');
         }
 
+        // If there is stock, gets the product info
         $productInfo = $this->getProductFromCode($productCode);
 
         $this->makeImage($productInfo, $productCode);
@@ -112,6 +130,10 @@ class PurchaseController extends Controller
         }
     }
 
+    /**
+     * Proceeds to purchase a product, decrementing it's stock
+     * according to the purchased size
+     */
     public function purchaseProduct(REQUEST $request)
     {
         $productCode = $request->input('code');

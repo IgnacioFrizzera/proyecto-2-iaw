@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Product;
 use App\Http\Controllers\Controller;
 use App\Purchase;
 
+/**
+ * Controller that will handle the process of returning
+ * all the purchases ever made
+ */
 class ShowTotalSalesController extends Controller
 {
     
@@ -18,6 +22,10 @@ class ShowTotalSalesController extends Controller
         return view('showTotalSalesView');
     }
 
+    /**
+     * Returns all the purchases ever made 
+     * If there are none, shows message
+     */
     public function showTotalSalesHistory()
     {
         $storeTotalSalesHistory = Purchase::join('products', 'products.code', '=', 'purchases.product_code')
