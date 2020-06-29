@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Ubuntu");
 
+#title {
+  color: crimson;
+}
 
 #search_box {
   padding-right: 50%;
@@ -54,8 +57,4 @@
 .search-box:hover > .search-btn {
   background: rgb(0, 0, 0);
   color: #ffffff;
-}
-
-#title {
-  color: crimson;
 }
