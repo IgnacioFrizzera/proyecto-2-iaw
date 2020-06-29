@@ -16,7 +16,8 @@ class CreatePurchasesTable extends Migration
         Schema::create('purchases', function (Blueprint $table) {
             $table->id()->primary;
             $table->string('email');
-            $table->string('product_code')->references('code')->on('products');
+            $table->string('product_code', 10);
+            $table->foreign('product_code')->references('code')->on('products');
             $table->string('product_size', 2);
             $table->timestamps();
         });
