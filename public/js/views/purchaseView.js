@@ -3,8 +3,6 @@
  * based on stock availability 
  */
 
-console.log("hello world");
-
 s_stock = parseInt(document.getElementById("s_stock").value);
 m_stock = parseInt(document.getElementById("m_stock").value);
 l_stock = parseInt(document.getElementById("l_stock").value);
