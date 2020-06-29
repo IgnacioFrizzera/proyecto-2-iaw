@@ -12,6 +12,13 @@ Luego habrá otra tabla que tendrá los talles de los productos con el respectiv
 
 También habrá una tabla de usuarios que mantenga el registro de todos los usuarios con su nombre de usuario, email y contraseña, la cual se utilizará para permitir el loggin a la página y en el caso de que un usuario desee recuperar su contraseña, enviarle un email con esta.
 
+# Deploy
+Asumiendo que ya se está registrado en Heroku y se configuró el CLI haremos lo siguiente: ir a la carpeta donde se clonó el repo y abrir la linea de comandos y correr los siguientes comandos:
+*  **git push heroku master** (no siempre necesario, pero por las dudas correrlo, de esta forma tenemos la ultima versión del repo cargado en Heroku)
+* **heroku run -a mygenericshop php artisan migrate:fresh --seed** (con este comando generamos el esquema de la base de datos y corremos las seeds, así de esta forma tenemos dos usuarios creados un admin y un user común como también tendremos una variedad de productos cargados en la página)
+* **heroku run -a mygenericshop php artisan passport:install** (es necesario correr este comando siempre que se realice una migración, de esta forma generamos las keys privadas para que después se pueda utilizar la API)
+* **heroku open** con este comando abriremos la página creada o directamente podemos ir a la URL: https://mygenericshop.herokuapp.com/
+
 # API
 Se desarrollará una API que permita obtener la siguiente información de la página:
 ### Stock total de la página: cada entrada representará un producto con su respectivo código y el stock disponible en cada talle.
