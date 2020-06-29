@@ -84,11 +84,11 @@
                     @endauth
                 </div>
             @endif
-
             <div class="content">
-                <div class="title m-b-md">
-                    {{ config('app.name') }}
+                <div class="container">
+                    <img src="{{ asset('uploads/temp/logo/logo.png')}}" alt="Image">
                 </div>
+                <h1 id="title">{{ config('app.name') }}</h1>
                 <div class="container">
                     <form action= "{{ route('search-products') }}" method="GET" enctype="multipart/form-data">
                         {{ csrf_field() }}
