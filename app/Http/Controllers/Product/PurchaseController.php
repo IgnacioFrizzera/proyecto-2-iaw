@@ -119,15 +119,8 @@ class PurchaseController extends Controller
 
         $productStock = Stock::where('product_code', $productCode);
 
-
         // Do ->first() to get the only model obtained from the query
         $message = $this->decrementStock($productSize, $productStock->first());
-
-        $productInfo = $this->getProductFromCode($productCode);
-        foreach ($productInfo as $value) :
-            $productName = $value->name;
-            $productPrice = $value->price;
-        endforeach;
 
         // If message is empty it means there was stock available so the purchase was made
         if(empty($message))
@@ -138,8 +131,7 @@ class PurchaseController extends Controller
             $user = Auth::user();
             Purchase::create([
                 'email' => $user->email,    
-                'product_name' => $productName,
-                'product_price' => $productPrice,
+                'product_code' => $productCode,
                 'product_size' => strtoupper($productSize)
             ]);
         }

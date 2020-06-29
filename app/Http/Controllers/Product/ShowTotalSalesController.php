@@ -20,7 +20,11 @@ class ShowTotalSalesController extends Controller
 
     public function showTotalSalesHistory()
     {
-        $storeTotalSalesHistory = Purchase::get();
+        $storeTotalSalesHistory = Purchase::join('products', 'products.code', '=', 'purchases.product_code')
+        ->select('purchases.id', 'purchases.email', 'purchases.product_code','products.name','products.price',
+                 'purchases.product_size', 'purchases.created_at')
+        ->get();
+
 
         if(count($storeTotalSalesHistory) == 0){
             return $this->index()->withMessage('The store has not sold anything yet');

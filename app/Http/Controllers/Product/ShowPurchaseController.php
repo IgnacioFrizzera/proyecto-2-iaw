@@ -25,7 +25,10 @@ class ShowPurchaseController extends Controller
     public function showPurchases()
     {
         $currentUserEmail = Auth::user()->email;
+
         $userPurchaseHistory = Purchase::where('email', $currentUserEmail)
+        ->join('products', 'products.code', '=', 'purchases.product_code')
+        ->select('purchases.id', 'products.name', 'products.price', 'purchases.product_size', 'purchases.created_at')
         ->get();
 
         if(count($userPurchaseHistory) == 0)

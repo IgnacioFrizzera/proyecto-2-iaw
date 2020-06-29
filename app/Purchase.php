@@ -10,7 +10,7 @@ class Purchase extends Model
     protected $table = 'purchases';
 
     protected $fillable = [
-        'email', 'product_name', 'product_price', 'product_size'
+        'email', 'product_code', 'product_size'
     ];
 
 }

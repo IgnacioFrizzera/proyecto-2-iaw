@@ -27,8 +27,8 @@
                     @foreach ($userPurchaseHistory as $value)
                         <tr>
                             <td> {{$value->id}} </td>
-                            <td> {{$value->product_name}} </td>
-                            <td> ${{$value->product_price}} </td>
+                            <td> {{$value->name}} </td>
+                            <td> ${{$value->price}} </td>
                             <td> {{$value->product_size}} </td>
                             <td> {{$value->created_at}} </td>
                         </tr>
