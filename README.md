@@ -78,7 +78,7 @@ Primero que nada setear como una request POST y utilizar la URL: https://mygener
 
 Luego en las columnas de values irán los respectivos valores a completar.
 
-Respecto a la sección de Headers realizar lo mismo que se mencionó en la explicación del registro.
+Respecto a la sección de Headers realizar lo mismo que se mencionó en la explicación del **Registro**.
 
 Una vez enviada la request pueden figurar dos tipos de mensaje, uno de error donde se indicará el tipo de error que ocurrió (puede ser de credenciales inválidas, etc.) y otro que indicará que se pudo logear con exito, en dicho caso debería figurar lo siguiente en Postman:
 
@@ -111,11 +111,14 @@ En el caso de que algun dato sea invalido figurará un mensaje del siguiente est
 Todo lo mencionada en estas secciones se podrá utilizar una vez se haya realizado el logeo en la API (lo explicado anteriormente).
 #### Obtención del stock de la tienda:
 Para realizar esta función se deberá utilizar la siguiente URL: https://mygenericshop.herokuapp.com/api/stock.
-A lo que es la aplicación Postman vamos a tener que crear una request de tipo GET y utilizar la URL mencionada anteriormente, una vez hecho esto, debemos dirigirnos a la sección de "Authorization" e ir a donde dice "Type" hacer click en esto y seleccionar la opción de "Bearer Token" **es crucial seleccionar esta forma de autorización para poder utilizar la API**. Una vez seleccionado esto figurara un campo de "Token" a la derecha donde aquí completaremos con el "accessToken" obtenido de tanto realizar el **Login** como el **Register** en la API.
 
-Luego iremos a la sección de "Headers" y completaremos con lo mismo que completamos tanto en la sección de **Login** como de **Register**.
+A lo que es la aplicación Postman vamos a tener que crear una request de tipo GET y utilizar la URL mencionada anteriormente. 
 
-Una vez hecho esto hacemos click en Send y obtendremos el stock de nuestra tienda. Es importante setear la opción de pretty, ya que la tienda devuelve la información en este formato lo cual permite visualizarla de una mejor manera. Los resultados que obtendremos se verán de la siguiente manera:
+Una vez hecho esto, debemos dirigirnos a la sección de **"Authorization"** e ir a donde dice **"Type"** hacer click en esto y seleccionar la opción de **"Bearer Token" es crucial seleccionar esta forma de autorización para poder utilizar la API**. Una vez seleccionado esto figurara un campo de **"Token"** a la derecha donde aquí completaremos con el **"accessToken"** obtenido de tanto realizar el **Logeo** como el **Registro** en la API.
+
+Luego iremos a la sección de **"Headers"** y completaremos con lo mismo que completamos tanto en la sección de **Logeo** como de **Registro**.
+
+Una vez hecho esto hacemos click en Send y obtendremos el stock de nuestra tienda. Es importante setear la opción de **pretty**, ya que la tienda devuelve la información en este formato lo cual permite visualizarla de una mejor manera. Los resultados que obtendremos se verán de la siguiente manera:
 
 [
 
@@ -136,14 +139,14 @@ Una vez hecho esto hacemos click en Send y obtendremos el stock de nuestra tiend
 
 #### Obtención de la información de un producto específico:
 Para realizar esta función se deberá utilizar la siguiente URL: https://mygenericshop.herokuapp.com/api/product-info/.
-A lo que es la aplicación Postman vamos a tener que crear una request de tipo GET y utilizar la URL mencionada anteriormente, una vez hecho procederemos a realizar lo mismo que se realizo en la sección de "Authorization" que se menciona en la sección de **Obtención del stock de la tienda**.
+A lo que es la aplicación Postman vamos a tener que crear una request de tipo GET y utilizar la URL mencionada anteriormente, una vez hecho procederemos a realizar lo mismo que se realizo en la sección de **"Authorization"** que se menciona en la sección de **Obtención del stock de la tienda**.
 
-Luego iremos a la sección de "Headers" y completaremos con lo mismo que completamos tanto en la sección de **Login** como de **Register** y de **Obtención del stock de la tienda**.
+Luego iremos a la sección de **"Headers"** y completaremos con lo mismo que completamos tanto en la sección de **Logeo** como de **Registro** y de **Obtención del stock de la tienda**.
 
 Una vez hecho esto modificaremos la URL que mencione anteriormente agregandole el **código** del producto a buscar, es decir la URL sería algo de la siguiente forma:
-https://mygenericshop.herokuapp.com/api/product-info/ProductCode, donde si nuestro código fuera XBY111 la URL se transformaría en lo siguiente: https://mygenericshop.herokuapp.com/api/product-info/XBY111.
+https://mygenericshop.herokuapp.com/api/product-info/ProductCode, donde si nuestro código fuera **XBY111** la URL se transformaría en lo siguiente: https://mygenericshop.herokuapp.com/api/product-info/XBY111.
 
-Una vez modificada la URL con el código del producto hacemos click en Send y obtendremos la información del producto deseado. Es importante setear la opción de pretty, ya que la tienda devuelve la información en este formato lo cual permite visualizarla de una mejor manera. Los resultados que obtendremos se verán de la siguiente manera:
+Una vez modificada la URL con el código del producto hacemos click en Send y obtendremos la información del producto deseado. Es importante setear la opción de **pretty**, ya que la tienda devuelve la información en este formato lo cual permite visualizarla de una mejor manera. Los resultados que obtendremos se verán de la siguiente manera:
 
 [
 
