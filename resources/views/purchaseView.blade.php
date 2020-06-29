@@ -15,7 +15,7 @@
                                     <h1> {{$info->name}} </h1>
                                     <p class="price"> ${{ $info->price }} </p>
                                     <div class="col-sm">
-                                        <form action=" {{ route('finish-purchase') }}" method="POST">
+                                        <form action="{{ route('finish-purchase') }}" method="POST">
                                             {{ csrf_field() }}
                                             <div class="row">
                                                 <input type="hidden" value= "s" name="size">
@@ -24,7 +24,7 @@
                                                 <button id="s_button">Purchase S size ({{$stock->s_stock}} left)</button>
                                             </div>
                                         </form>
-                                        <form action="/finish-purchase" method="POST">
+                                        <form action="{{ route('finish-purchase') }}" method="POST">
                                             {{ csrf_field() }}
                                             <div class="row">
                                                 <input type="hidden" value= "m" name="size">
@@ -33,7 +33,7 @@
                                                 <button id="m_button">Purchase M size ({{$stock->m_stock}} left)</button>
                                             </div>
                                         </form>
-                                        <form action="/finish-purchase" method="POST">
+                                        <form action="{{ route('finish-purchase') }}" method="POST">
                                             {{ csrf_field() }}
                                             <div class="row">
                                                 <input type="hidden" value= "l" name="size">
@@ -42,7 +42,7 @@
                                                 <button id="l_button">Purchase L size ({{$stock->l_stock}} left) </button>
                                             </div>
                                         </form>
-                                        <form action="/finish-purchase" method="POST">
+                                        <form action="{{ route('finish-purchase') }}" method="POST">
                                             {{ csrf_field() }}
                                             <div class="row">
                                                 <input type="hidden" value= "xl" name="size">
