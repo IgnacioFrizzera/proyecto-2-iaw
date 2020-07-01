@@ -20,9 +20,18 @@ Asumiendo que ya se está registrado en Heroku y se configuró el CLI haremos lo
 * **heroku open** con este comando abriremos la página creada o directamente podemos ir a la URL: https://mygenericshop.herokuapp.com/
 
 # API
+
 Se desarrollará una API que permita obtener la siguiente información de la página:
 ### Stock total de la página: cada entrada representará un producto con su respectivo código y el stock disponible en cada talle.
 ### Información de un producto específico: se brindará el código del producto a buscar a la API y esta retornará información de este.
+
+Para poder testear la API se deberán utilizar los archivos cargados en la carpeta llamada "postman". La carpeta consiste de dos archivos:
+* **Collection**: este archivo almacena todas las requests de la API para que se pueda probar rapidamente y tanto las requests de **login, register y product info** ya tienen información cargada en su body para poder testear todo de forma rápida. Especificamente, la de **register** ya tiene datos de un usuario para poder registrar, la de **login** ya tiene los datos de este usuario que se habrá registrado previamente para logearse y la de **product info** ya tiene el código de un producto en su URL para poder buscar información sobre este.
+* **Enviroment**: es sumamente importante cargar el enviroment en postman ya que en este archivo se setea una variable de entorno que será el access token obtenido de realizar tanto el **register** como el **logeo** el cual será necesario para poder realizar las requests de **stock y product info**
+
+La idea con las requests cargadas es que se ejecute primero el **register** para poder registrar un usuario, luego realizar el **login** y luego hacer tanto **stock** como **product info** en el orden que se desee.
+
+**Los siguientes pasos sirven en el caso que no se cargue la collection ni el enviroment mencionados anteriormente**
 
 ## Uso de la API
 
