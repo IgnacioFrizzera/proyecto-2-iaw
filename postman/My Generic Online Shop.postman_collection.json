@@ -1,0 +1,217 @@
+{
+	"info": {
+		"_postman_id": "2c720423-ea5e-4e47-bc19-5404c4d942b0",
+		"name": "My Generic Online Shop",
+		"description": "Colección de requests del proyecto 2 de IAW.\r\n\r\nLas requests de Login y Register no necesitan auth.\r\n\r\nLuego las requests de getProductInfo y getStock si van a necesitar y se va a utiliazr un bearer token con el access token del usuario logeado.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "My Generic Shop - Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bbd70ea3-1e14-4cd5-84ef-7f44ab58441a",
+						"exec": [
+							"var jsonData= pm.response.json();\r",
+							"pm.environment.set('token', jsonData.accessToken);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "testingapiuser@user.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "testing_password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://mygenericshop.herokuapp.com/api/login",
+					"protocol": "https",
+					"host": [
+						"mygenericshop",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				},
+				"description": "Hace el logeo en la api mediante un usuario y una contraseña que ya fueron creados con la request de register."
+			},
+			"response": []
+		},
+		{
+			"name": "My Generic Shop - Register",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f76e48e6-ee22-457f-a970-c5b42198f333",
+						"exec": [
+							"var jsonData= pm.response.json();\r",
+							"pm.environment.set('token', jsonData.accessToken);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "testing_api_user",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "testingapiuser@user.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "testing_password",
+							"type": "text"
+						},
+						{
+							"key": "password_confirmed",
+							"value": "testing_password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://mygenericshop.herokuapp.com/api/login",
+					"protocol": "https",
+					"host": [
+						"mygenericshop",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				},
+				"description": "Registra un usuario en la API. Se necesita nombre, email, contraseña y confirmación de esta."
+			},
+			"response": []
+		},
+		{
+			"name": "My Generic Shop - Stock",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://mygenericshop.herokuapp.com/api/stock",
+					"protocol": "https",
+					"host": [
+						"mygenericshop",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"stock"
+					]
+				},
+				"description": "A partir del bearer token (access token) de un usuario ya logeado/registrado se manda esta request para obtener el stock de la página."
+			},
+			"response": []
+		},
+		{
+			"name": "My Generic Shop - Product info",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://mygenericshop.herokuapp.com/api/product-info/NHBW1220",
+					"protocol": "https",
+					"host": [
+						"mygenericshop",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"product-info",
+						"NHBW1220"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "A partir del bearer token (access token) de un usuario ya logeado/registrado se manda esta request para obtener la información de un producto específico a partir del código que se especificó en la URL."
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
