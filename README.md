@@ -12,6 +12,10 @@ Luego habrá otra tabla que tendrá los talles de los productos con el respectiv
 
 También habrá una tabla de usuarios que mantenga el registro de todos los usuarios con su nombre de usuario, email y contraseña, la cual se utilizará para permitir el loggin a la página y en el caso de que un usuario desee recuperar su contraseña, enviarle un email con esta.
 
+**Lo mencionado anteriormente fue la idea inicial, pero a medida que avancé con el proyecto y vi que tenía tiempo agregué lo siguiente:**
+
+Agregue un modelo para representar las "Compras" realizadas por los usuarios de la página. Una compra tiene asociada la fecha en la que se hizo, un id único, el email del usuario que la realizó, el código del producto que fue comprado y el talle de este.
+
 # Deploy
 Asumiendo que ya se está registrado en Heroku y se configuró el CLI haremos lo siguiente: ir a la carpeta donde se clonó el repo y abrir la linea de comandos y correr los siguientes comandos:
 *  **git push heroku master** (no siempre necesario, pero por las dudas correrlo, de esta forma tenemos la ultima versión del repo cargado en Heroku)
