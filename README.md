@@ -33,7 +33,6 @@ Para poder testear la API se deberán utilizar los archivos cargados en la carpe
 * **Collection**: este archivo almacena todas las requests de la API para que se pueda probar rapidamente y tanto las requests de **login, register y product info** ya tienen información cargada en su body para poder testear todo de forma rápida. Especificamente, la de **register** ya tiene datos de un usuario para poder registrar, la de **login** ya tiene los datos de este usuario que se habrá registrado previamente para logearse y la de **product info** ya tiene el código de un producto en su URL para poder buscar información sobre este.
 * **Enviroment**: es sumamente importante cargar el enviroment en postman ya que en este archivo se setea una variable de entorno que será el access token obtenido de realizar tanto el **register** como el **logeo** el cual será necesario para poder realizar las requests de **stock y product info**
 
-La idea con las requests cargadas es que se ejecute primero el **register** para poder registrar un usuario, luego realizar el **login** y luego hacer tanto **stock** como **product info** en el orden que se desee.
 
 **Los siguientes pasos sirven en el caso que no se cargue la collection ni el enviroment mencionados anteriormente**
 
@@ -128,7 +127,6 @@ En el caso de que algun dato sea invalido figurará un mensaje del siguiente est
 }
 
 ### Utilización:
-Todo lo mencionada en estas secciones se podrá utilizar una vez se haya realizado el logeo en la API (lo explicado anteriormente).
 #### Obtención del stock de la tienda:
 Para realizar esta función se deberá utilizar la siguiente URL: https://mygenericshop.herokuapp.com/api/stock.
 
