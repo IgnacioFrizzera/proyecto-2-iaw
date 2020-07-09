@@ -25,7 +25,7 @@
                         <br>
                         <h3>Things you <strong>WILL</strong> be able to do as an user:</h3>
                         <li>Customize your profile (set an avatar, preferences, etc.)</li>
-                        <li>Refound a purchase</li>
+                        <li>Refund a purchase</li>
                         <li>Save payment methods (<strong>e.g</strong>, credit card info)</li>
                         <li>Charge money into a wallet</li>
                         <li>Search by category (<strong>e.g</strong>, by hoodies)</li>

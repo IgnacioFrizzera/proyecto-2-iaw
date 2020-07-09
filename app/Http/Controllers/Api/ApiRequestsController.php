@@ -11,24 +11,20 @@ class ApiRequestsController extends Controller
 {
     
     /**
-     * Returns a specific product name, price and stock
-     * Response will looke like this:
+     * Returns a specific product general information
+     * Response will look like this:
      *  [   
      *      name: product_name
+     *      brand: product_brand
+     *      description: product_description
      *      price: product_price
-     *      s_stock: product_s_stock
-     *      m_stock: product_m_stock
-     *      l_stock: product_l_stock
-     *      xl_stock: product_xl_stock
      *  ]
      *  
      */
     public function getProductInfo($code)
     {
         $productInfo = Product::where('code', $code)
-        ->join('product_stock', 'products.code', '=', 'product_stock.product_code')
-        ->select('products.name', 'products.price', 'product_stock.s_stock',
-                 'product_stock.m_stock', 'product_stock.l_stock', 'product_stock.xl_stock')
+        ->select('name', 'brand', 'description', 'price')
         ->get();
 
         if(count($productInfo) == 0)
