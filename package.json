@@ -24,6 +24,6 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "elliptic": "^6.5.3"
+        "elliptic": "^6.5.4"
     }
 }
